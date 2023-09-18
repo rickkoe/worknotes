@@ -226,16 +226,16 @@ Use the command in the previous section to display the port licenses after makin
 Go to this URL and follow the steps to download and install Brocade SAN Health Diagnostic Capture:
 [Download Brocade SAN Health Diagnostics Capture](https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture)
 1. Before running, turn on automatic upload by clicking the **Options** button.
-![Click Options](worknotes/assets/images/san-health-1.png)
+![Click Options](/docs/assets/images/san-health-1.png)
 1. Check the box to **Automatically send the BSH file to the report generation queue on audit completion**.
-![Automatic Upload](worknotes/assets/images/san-health-2.png)
+![Automatic Upload](/docs/assets/images/san-health-2.png)
 1. Click **Done**.
 1. Click the **New** button to generate a new audit file.  This only needs to be done the first time setting up SAN Health.  Future runs can be done by opening a saved audit file.
-![Click New](worknotes/assets/images/san-health-3.png)
+![Click New](/docs/assets/images/san-health-3.png)
 1. Complete all 5 tabs in the SAN Health Audit.  Include *Rick Koetter - rick.k@evolvingsol.com* or other partners as desired in the **Optional Additional Recipients** fields.
 ![Additional Recipients](/docs/assets/images/san-health-4.png)
 1. Be sure to include all fabrics.  There is no good reason to run this multiple times for different fabrics.  All fabrics can be included in a single SAN Health report.
 1. Before starting the capture, click on the Save button to save the audit so you can run this report easily with a few clicks in the future.
 1. Start the Audit on the Capture tab after all other tabs are complete and all fabrics have been discovered successfully.  The file will upload automatically after all data is completed.
-![Start The Audit](/worknotes/assets/images/san-health-5.png)
+![Start The Audit](/docs/assets/images/san-health-5.png)
 1. It may take up to several hours for the report to be generated.  When it is ready for download, you will receive notification by email.  You will be instructed to download the report from [https://support.broadcom.com](https://support.broadcom.com). Your consultant will also receive a copy of the report if you entered their email in the Optional Additional Recipients field.
