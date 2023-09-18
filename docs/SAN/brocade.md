@@ -223,7 +223,7 @@ Use the command in the previous section to display the port licenses after makin
 1. Download and Install the Free Tool
 Go to this URL and follow the steps to download and install Brocade SAN Health Diagnostic Capture:
 
-https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture
+[Download Brocade SAN Health Diagnostics Capture](https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture)
 
 *This tool is free of charge to anyone.*
 Turn on Automatic Upload
