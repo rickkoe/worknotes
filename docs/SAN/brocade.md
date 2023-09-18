@@ -226,7 +226,7 @@ Use the command in the previous section to display the port licenses after makin
 Go to this URL and follow the steps to download and install Brocade SAN Health Diagnostic Capture:
 [Download Brocade SAN Health Diagnostics Capture](https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture)
 1. Before running, turn on automatic upload by clicking the **Options** button.
-![Click Options](/assets/san-health-1.png)
+![Click Options](worknotes/assets/san-health-1.png)
 1. Check the box to **Automatically send the BSH file to the report generation queue on audit completion**.
 ![Automatic Upload](/assets/san-health-2.png)
 1. Click **Done**.
