@@ -1,4 +1,5 @@
-# IBM Tools
+# IBM Resources
+## Pre-Sales Tools
 - [Announcement Letters](https://www.ibm.com/docs/en/announcements)
 - [Storage Modeler](https://www.ibm.com/tools/storage-modeller/#/projects)
 - [e-Config Cloud](https://www.ibm.com/services/econfigcloud/#/)

@@ -19,7 +19,7 @@ Site Organization is as follows:
 [IBM Spectrum Archive (aka LTFS)](Storage/archive.md)
 ### IBM Ceph Storage
 [IBM Ceph Storage](Storage/ceph.md)
-## Tools
-### IBM Tools
-[IBM Tools](Tools/ibm-tools.md)
+## Resources
+### IBM Resources
+[IBM Tools](Resources/ibm.md)
 
