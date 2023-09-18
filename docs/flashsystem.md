@@ -33,6 +33,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 *If you are upgrading microcode, use this link to determine the latest (LTS) recommended code level along with other levels that are available (non-LTS)*
 
 -   [Recommended Code Levels](https://www.ibm.com/support/pages/spectrum-virtualize-family-products-upgrade-planning)
+-   [Supported Drive Types and Firmware Levels](https://www.ibm.com/support/pages/node/873170)
 
 
 *This link will show if you are able to upgrade directly to another code level, or if you have to upgrade in two steps.*

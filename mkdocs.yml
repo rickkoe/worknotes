@@ -1,4 +1,6 @@
 site_name: Rick's Work Notes
+# nav:
+#   - 'Storage'
 theme: 
   name: material
   features:
@@ -10,6 +12,7 @@ theme:
     - navigation.footer
     - navigation.tracking
     - navigation.top
+    - navigation.expand
     - header.autohide
     - toc.integrate
     - toc.follow
