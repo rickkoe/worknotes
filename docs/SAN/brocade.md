@@ -96,7 +96,6 @@ relayConfig --config -rla_ip <relay IP> -rla_dname <domain name>
 
 #### Licenses
 
-
 - <input type="checkbox"/> [Apply new licenses](/san/brocade/license) (POD, etc.)
 
 - <input type="checkbox"/> Verify licenses (POD, etc.)
