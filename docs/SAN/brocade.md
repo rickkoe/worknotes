@@ -220,69 +220,22 @@ Use the command in the previous section to display the port licenses after makin
 
 ## SAN Discovery
 ### Brocade SAN Health
+*This tool is free of charge to anyone with a Broadcom.com account.*
+
 1. Download and Install the Free Tool
 Go to this URL and follow the steps to download and install Brocade SAN Health Diagnostic Capture:
-
 [Download Brocade SAN Health Diagnostics Capture](https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture)
-
-*This tool is free of charge to anyone.*
-Turn on Automatic Upload
-Before running, click on Options
-New 
-n 1 3 save I 
-Options 
-Brocade 
-SAN Health Version 4.018b 
-FICON I O) Help 
-O Devices In Audit 
-O Completed 
-O Failed 
-SAN Health@
-Set the audit file to automatically upload.
-SAN Health Options 
-General Options Snitch Diagnostics 
-Automatic 
-Device Names 
-Repot Format 
-Diagram For 
-Audit Data File Upload 
-Automatically send the BSH file to the report generation queue on audit completion 
-Submit t e 
-Set The From Address As 
-Email The BSH Data File To 
-SMTP Server (Optional) 
-Submit the BSH file using htps 
-htps timeout (seconds) 
-Send A Test Email 
-Send A Test htps File 
-T est results are displayed 
-in the main activity log 
-use a Proxy server 
-Proxy Server Address 
-Proxy Server Port 80 
-Advanced Proxy Options 
-Scheduling Audits 
-use Windows Scheduler to call SAN Health with the following command line arguments: 
-"SET file name and path" (This "ill load the SET file when SAN Health launches) 
-/autostart (This "ill automatically start any specified SET file that was loaded) 
-Example: 
-Health "C: WAN Health 'autostart 
-use the auto upload options above in combination with Windows Scheduler to implement unattended automatic audite
-Create the Audit File
-New 
-n Import savel 
-Options 
-Brocade 
-SAN Health Version 4.018b 
-FICON I O) Help 
-O Devices In Audit 
-O Completed 
-O Failed 
-SAN Health@
- 
-Complete all 5 tabs in the SAN Health Audit.  Include Rick Koetter from Evolving Solutions (rick.k@evolvingsol.com) on the report return (Site Details Tab) as shown below
-Machine generated alternative text:
-Start the Audit
-Start the Audit on the Capture tab after all other tabs are complete and all fabrics have been discovered successfully.  The file will upload automatically after all data is completed.
-Machine generated alternative text:
-It may take up to several hours for the report to be generated.      When it is ready for download, you will receive notification by email.  You will be instructed to download the report from https://my.brocade.com  Evolving Solutions will also receive a copy of the report per the email entered in step 5.
+1. Before running, turn on automatic upload by clicking the **Options** button.
+![Click Options](/assets/san-health-1.png)
+1. Check the box to **Automatically send the BSH file to the report generation queue on audit completion**.
+![Automatic Upload](/assets/san-health-2.png)
+1. Click **Done**.
+1. Click the **New** button to generate a new audit file.  This only needs to be done the first time setting up SAN Health.  Future runs can be done by opening a saved audit file.
+![Click New](/assets/san-health-3.png)
+1. Complete all 5 tabs in the SAN Health Audit.  Include *Rick Koetter - rick.k@evolvingsol.com* or other partners as desired in the **Optional Additional Recipients** fields.
+![Additional Recipients](/assets/san-health-4.png)
+1. Be sure to include all fabrics.  There is no good reason to run this multiple times for different fabrics.  All fabrics can be included in a single SAN Health report.
+1. Before starting the capture, click on the Save button to save the audit so you can run this report easily with a few clicks in the future.
+1. Start the Audit on the Capture tab after all other tabs are complete and all fabrics have been discovered successfully.  The file will upload automatically after all data is completed.
+![Start The Audit](/assets/san-health-5.png)
+1. It may take up to several hours for the report to be generated.  When it is ready for download, you will receive notification by email.  You will be instructed to download the report from [https://support.broadcom.com](https://support.broadcom.com). Your consultant will also receive a copy of the report if you entered their email in the Optional Additional Recipients field.
