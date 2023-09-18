@@ -56,8 +56,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark
-  - attr_list
-  - md_in_html
   - tables
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
