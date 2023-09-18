@@ -24,14 +24,14 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to light mode
-      primary: deep orange
+      primary: blue grey
       accent: grey 
     - scheme: default 
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode    
-      primary: blue grey
-      accent: blue
+      primary: white
+      accent: black
 extra:
   social:
     - icon: fontawesome/brands/github-alt
