@@ -8,6 +8,7 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.tabs
+    - navigation.sticky
     # - navigation.prune
     - navigation.footer
     - navigation.tracking
