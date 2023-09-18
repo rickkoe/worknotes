@@ -28,7 +28,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to light mode
-      primary: blue grey
+      primary: orange
       accent: grey 
     - scheme: default 
       toggle:
