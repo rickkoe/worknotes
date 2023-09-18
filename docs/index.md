@@ -1,10 +1,8 @@
 # Home 
-
-Welcome to Rick's Work Notes.  This is a collection of information, notes, and 
+This is a collection of information, notes, and 
 resources that I've been collecting over the years.
 
-Site Organization is as follows.
-
+Site Organization is as follows:
 ## SAN
 ### Brocade SAN
 [Brocade SAN switches and Directors](SAN/brocade.md)
@@ -21,7 +19,6 @@ Site Organization is as follows.
 [IBM Spectrum Archive (aka LTFS)](Storage/archive.md)
 ### IBM Ceph Storage
 [IBM Ceph Storage](Storage/ceph.md)
-
 ## Tools
 ### IBM Tools
 [IBM Tools](Tools/ibm-tools.md)
