@@ -43,6 +43,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 
 ### Other Stuff
 -   [CSM ESE Sizer](https://www.ibm.com/support/pages/node/6372180)
+-   [Ansible and IBM Storage](https://www.ansible.com/integrations/infrastructure/ibm-storage)
 -	[IBM Storage Ansible Modules](https://galaxy.ansible.com/ibm/spectrum_virtualize)
 -   [Enable the VMware iSER Adapter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-4F2C10BB-3705-4040-BFDE-A190FE273060.html)
 -   [Vdbench Downloads and User Guide](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
@@ -356,5 +357,4 @@ test
 node node1 -2--
 node node2 -2--
 ```
-## Cool Links
-- [Ansible and IBM Storage](https://www.ansible.com/integrations/infrastructure/ibm-storage)
+
