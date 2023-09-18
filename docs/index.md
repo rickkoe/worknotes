@@ -1,26 +1,28 @@
 # Home 
 
-Welcome to the Evolving Solutions technology Wiki.  Choose a topic below to get started.
+Welcome to Rick's Work Notes.  This is a collection of information, notes, and 
+resources that I've been collecting over the years.
 
-# Servers
-- [IBM Power *Power8, Power9, Power10*](/ibm-power)
-- [IBMi *aka iSeries, AS/400*](/ibmi)
-{.links-list}
+Site Organization is as follows.
 
-# SAN
-- [Brocade *SAN switches and directors from Broadcom*](/brocade)
-- [Cisco *MDS SAN switches and directors from Cisco*](/cisco-mds)
-{.links-list}
+## SAN
+### Brocade SAN
+[Brocade SAN switches and Directors](SAN/brocade.md)
+### Cisco MDS SAN
+[Cisco MDS SAN Switches and Directors](SAN/cisco-mds.md)
+## Storage
+### IBM DS8000 Storage
+[IBM DS8000 Enterprise Storage](Storage/ds8000.md)
+### IBM FlashSystem Storage
+[IBM FlashSystem Storage](Storage/flashsystem.md)
+### IBM Storage Scale
+[IBM Storage Scale (aka GPFS)](Storage/scale.md)
+### IBM Spectrum Archive
+[IBM Spectrum Archive (aka LTFS)](Storage/archive.md)
+### IBM Ceph Storage
+[IBM Ceph Storage](Storage/ceph.md)
 
-# Storage
-- [IBM DS8000 *DS8910, DS8950*](/ibm-ds8000)
-- [IBM FlashSystem *FS9500, FS7300, FS5200*](/ibm-flashsystem)
-- [IBM Tape *TS4500, TS4300, TS7700*](/ibm-tape)
-- [IBM Storage Software *Storage Insights, Spectrum Control, SKLM*](/software/ibm)
-- [IBM Storage Archive *LTFS Enterprise Edition*](/storage-archive)
-{.links-list}
-
-# General
-- [IBM](/ibm)
-{.links-list}
+## Tools
+### IBM Tools
+[IBM Tools](Tools/ibm-tools.md)
 
