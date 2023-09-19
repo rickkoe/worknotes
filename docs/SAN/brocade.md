@@ -9,6 +9,9 @@
 
 These are the typical items that should be reviewed and/or configured when setting up a new Brocade SAN switch/director. While many of these settings can be set in WebTools, the CLI commands are listed here for a simlper checklist.
 
+### Microcode Guidance
+- [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
+
 #### User Settings
 
 - <input type="checkbox"/> Enable root access *optional*

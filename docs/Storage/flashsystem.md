@@ -34,6 +34,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 
 -   [Recommended Code Levels](https://www.ibm.com/support/pages/spectrum-virtualize-family-products-upgrade-planning)
 -   [Supported Drive Types and Firmware Levels](https://www.ibm.com/support/pages/node/873170)
+- [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
 
 
 *This link will show if you are able to upgrade directly to another code level, or if you have to upgrade in two steps.*

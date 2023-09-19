@@ -43,7 +43,8 @@ reload module 2
 ```
 
 
-
+### Microcode Guidance
+- [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
 ## Implementation Checklist
 - <input type="checkbox"/> Enter configuration mode
 ```
