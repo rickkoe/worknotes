@@ -14,7 +14,7 @@ theme:
     - navigation.tracking
     - navigation.top
     - navigation.sections
-    - header.autohide
+    # - header.autohide
     # - toc.integrate
     - toc.follow
     - search.suggest
