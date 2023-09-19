@@ -24,18 +24,18 @@ theme:
     - content.code.copy
   language: en
   palette:
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch-off-outline 
-        name: Switch to light mode
-      primary: orange
-      accent: grey 
     - scheme: default 
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode    
       primary: white
       accent: black
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to light mode
+      primary: orange
+      accent: grey 
 extra:
   social:
     - icon: fontawesome/brands/github-alt

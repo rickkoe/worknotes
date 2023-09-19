@@ -159,6 +159,7 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
 In order to activate a license, you must have a **Transaction Key** for each license to be activated along with the **License ID** (LID) of the appropriate switch.
 ### Obtaining the Transaction Key
 A Transaction key is unique key, along with the LID, used to generate a software license from the Broadcom licensing portal. The transaction key is issued when a license is purchased. The transaction key is delivered in one of two methods:
+
 - **Paperpack** – The transaction key is printed and delivered within a POD Optic Hardware Kit. 
 - **E-license** – The transaction key is contained in an email that is sent instantly to the customer after the sales order is created. The customer is sent the email message within a few minutes after the sales order is submitted, although the timing will vary depending on the network, internet connection, and so on. 
 ### Obtaining the License ID
