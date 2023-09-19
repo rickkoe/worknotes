@@ -1,6 +1,9 @@
 # Brocade SAN
 ## Documentation Links
-- [Broadcom Support Portal *Click on **Brocade Storage Networking** in Header*](https://support.broadcom.com) 
+### Support Information
+- [Broadcom Support Portal](https://support.broadcom.com)
+
+### Reference Guides
 - [Brocade FOS Administration Guide, 9.0.x](https://docs.broadcom.com/doc/FOS-90x-Admin-AG)
 - [Brocade FOS Command Reference Manual, 9.0.x](https://docs.broadcom.com/doc/FOS-90x-Command-RM)
 
