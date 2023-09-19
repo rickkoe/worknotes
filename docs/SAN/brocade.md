@@ -4,13 +4,13 @@
 - [Brocade FOS Administration Guide, 9.0.x](https://docs.broadcom.com/doc/FOS-90x-Admin-AG)
 - [Brocade FOS Command Reference Manual, 9.0.x](https://docs.broadcom.com/doc/FOS-90x-Command-RM)
 
+### Microcode Guidance
+- [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
+
 ## Implementation
 ### Implementation Checklist
 
 These are the typical items that should be reviewed and/or configured when setting up a new Brocade SAN switch/director. While many of these settings can be set in WebTools, the CLI commands are listed here for a simlper checklist.
-
-### Microcode Guidance
-- [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
 
 #### User Settings
 
