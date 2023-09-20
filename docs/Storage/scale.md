@@ -6,16 +6,26 @@
 ## Implementation
 ### Cheat Sheet
 
-- Ansible Toolkit directory:  
+- Ansible Toolkit directory: 
+
 ```
 /usr/lpp/mmfs/5.1.7.0/ansible-toolkit
 ```
 
 ### Linux Stretch Cluster Installation
 
+1. Set adapter IP Address
+1. Set hostname
+1. Set DNS servers
+
+```
+vi /etc/resolv.conf
+```
+
 1. Download the appropriate version of Spectrum Scale
 1. Copy the self-extracting product image to a local directory (We use:  `/home/install/scale`)
 1. Make the file executible if needed
+
 ```
 chmod Spectrum_Scale_Standard-5.1.7.x-x86_64-Linux-install
  ```
