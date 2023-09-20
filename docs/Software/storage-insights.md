@@ -6,6 +6,7 @@
 ## Implementation
 ### Data Collector Requirements
 You can install the data collector on the following operating systems:  
+
 - Windows Server 2012 and later.  
 - POWER6® or later systems that use AIX® 7.x or later. The AIX data collector can run on a physical AIX installation or a logical partition (LPAR).  
 - The Linux® data collector runs on 64-bit Linux operating systems on x86-64 and PPC64LE systems only.  
