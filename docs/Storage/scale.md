@@ -18,25 +18,13 @@
 1. Set hostname
 1. Set DNS servers
 1. Attach Redhat Subscription
-111 
-
-        ```
         vi /etc/resolv.conf
-        ```
-
 1. Download the appropriate version of Spectrum Scale
 1. Copy the self-extracting product image to a local directory (We use:  `/home/install/scale`)
 1. Make the file executible if needed
-
-
-        ```
         chmod Spectrum_Scale_Standard-5.1.7.x-x86_64-Linux-install
-        ```
-
 1. Extract
-
-        ```
         tar -xvf Scale_adv_5.1.7_ppc64le.tar
-        ```
+
 
 
