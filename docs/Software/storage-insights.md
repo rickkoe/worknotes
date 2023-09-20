@@ -3,8 +3,6 @@
 ## Documentation Links
 - [Storage Insights Documentation](https://www.ibm.com/docs/en/storage-insights)  
 - [Quick Start Guide](https://www.ibm.com/docs/en/SSQRB8/pdf/IBM_Storage_Insights_Getting_Started_Guide.pdf)  
-
-
 ## Implementation
 ### Data Collector Requirements
 You can install the data collector on the following operating systems:  
