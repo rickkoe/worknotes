@@ -1,12 +1,12 @@
 # IBM Storage Scale
-## Installation
-From https://www.ibm.com/docs/en/spectrum-scale/5.1.7?topic=toolkit-preparing-use-installation
+## Linux Stretch Cluster Installation
+From [https://www.ibm.com/docs/en/spectrum-scale/5.1.7?topic=toolkit-preparing-use-installation](https://www.ibm.com/docs/en/spectrum-scale/5.1.7?topic=toolkit-preparing-use-installation)
 
 
 Spectrum Scale
 Documentation:  [https://www.ibm.com/docs/en/spectrum-scale/5.1.7](https://www.ibm.com/docs/en/spectrum-scale/5.1.7)
-Ansible Toolkit directory:  /usr/lpp/mmfs/5.1.7.0/ansible-toolkit
-Cluster definition file:  /usr/lpp/mmfs/5.1.7.0/ansible-toolkit/ansible/vars
+Ansible Toolkit directory:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit`
+Cluster definition file:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit/ansible/vars`
 
 	1. Copy install files to /home/install
 		a. /home/install/scale
