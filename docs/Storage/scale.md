@@ -1,8 +1,7 @@
 # IBM Storage Scale
 ## Linux Stretch Cluster Installation
 
-- Spectrum Scale
-Documentation:  [https://www.ibm.com/docs/en/spectrum-scale/5.1.7](https://www.ibm.com/docs/en/spectrum-scale/5.1.7)
+- [Documentation Site](https://www.ibm.com/docs/en/storage-scale/5.1.7)
 - Ansible Toolkit directory:  
 ```
 /usr/lpp/mmfs/5.1.7.0/ansible-toolkit
@@ -10,13 +9,14 @@ Documentation:  [https://www.ibm.com/docs/en/spectrum-scale/5.1.7](https://www.i
 - Cluster definition file:  
 ```
 /usr/lpp/mmfs/5.1.7.0/ansible-toolkit/ansible/vars
-```
-
+```  
 
 1. Copy install files to /home/install
-    a. /home/install/scale
-    b. /home/install/archive
+    1. /home/install/scale
+    1. /home/install/archive
 1. Extract files
+
+
 3. Install the following RPMs on RHEL
     a. kernel-devel
     b. cpp
