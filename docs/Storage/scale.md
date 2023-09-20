@@ -7,10 +7,8 @@
 ### Cheat Sheet
 
 - Ansible Toolkit directory: 
+        /usr/lpp/mmfs/5.1.7.0/ansible-toolkit
 
-```
-/usr/lpp/mmfs/5.1.7.0/ansible-toolkit
-```
 
 ### Linux Stretch Cluster Installation
 
