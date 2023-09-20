@@ -1,8 +1,8 @@
 # IBM Storage Insights
 
 ## Documentation Links
-= [Storage Insights Documentation](https://www.ibm.com/docs/en/storage-insights)
-- [Quick Start Guide](https://www.ibm.com/docs/en/SSQRB8/pdf/IBM_Storage_Insights_Getting_Started_Guide.pdf)
+- [Storage Insights Documentation](https://www.ibm.com/docs/en/storage-insights)  
+- [Quick Start Guide](https://www.ibm.com/docs/en/SSQRB8/pdf/IBM_Storage_Insights_Getting_Started_Guide.pdf)  
 
 
 ## Implementation
