@@ -1,25 +1,23 @@
 # IBM Storage Scale
 ## Linux Stretch Cluster Installation
-From [https://www.ibm.com/docs/en/spectrum-scale/5.1.7?topic=toolkit-preparing-use-installation](https://www.ibm.com/docs/en/spectrum-scale/5.1.7?topic=toolkit-preparing-use-installation)
 
-
-Spectrum Scale
+- Spectrum Scale
 Documentation:  [https://www.ibm.com/docs/en/spectrum-scale/5.1.7](https://www.ibm.com/docs/en/spectrum-scale/5.1.7)
-Ansible Toolkit directory:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit`
-Cluster definition file:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit/ansible/vars`
+- Ansible Toolkit directory:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit`
+- Cluster definition file:  `/usr/lpp/mmfs/5.1.7.0/ansible-toolkit/ansible/vars`
 
-	1. Copy install files to /home/install
-		a. /home/install/scale
-		b. /home/install/archive
-	2. Extract files
-	3. Install the following RPMs on RHEL
-		a. kernel-devel
-		b. cpp
-		c. gcc
-		d. gcc-c++
-		e. binutils
-		f. elfutils-libelf-devel (Required for Red Hat Enterprise Linux 8.x)
-		yum install kernel-devel cpp gcc gcc-c++ binutils elfutils-libelf-devel
+1. Copy install files to /home/install
+    a. /home/install/scale
+    b. /home/install/archive
+2. Extract files
+3. Install the following RPMs on RHEL
+    a. kernel-devel
+    b. cpp
+    c. gcc
+    d. gcc-c++
+    e. binutils
+    f. elfutils-libelf-devel (Required for Red Hat Enterprise Linux 8.x)
+    yum install kernel-devel cpp gcc gcc-c++ binutils elfutils-libelf-devel
 	4. Verify python3 is installed (which python, which python3)
 		Install depndencies for cryptogoraphy:  dnf install rust.ppc64le redhat-rpm-config gcc libffi-devel python3-devel openssl-devel cargo pkg-config
 		yum install python3
