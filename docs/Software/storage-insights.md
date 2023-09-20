@@ -15,7 +15,7 @@
 #### Hardware
 
 - Deploy data collectors on servers or virtual machines that have access to the devices that you want to monitor and access to the internet to communicate with IBM Cloud. You can also deploy data collectors in a LAN where routing is configured to allow access across different subnets and on a WAN where devices are located in different geographical locations.
-- On the server or virtual machine, you must provide at least 1 GB of RAM and 3 GB of disk space.
+- On the server or virtual machine, you must provide at least **1 GB of RAM and 3 GB of disk space**.
 - Ensure that the operating system where you install the data collector has general or extended support for maintenance and security fixes.
 - The location where you install a data collector must be available 24X7:
 Don't install a data collector on a laptop or personal workstation. Shutting down a laptop or personal workstation or putting it into sleep mode will interrupt data collection.
