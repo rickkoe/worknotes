@@ -6,8 +6,7 @@
 ## Implementation
 ### Cheat Sheet
 
-- Ansible Toolkit directory: 
-        /usr/lpp/mmfs/5.1.7.0/ansible-toolkit
+- Ansible Toolkit directory: `/usr/lpp/mmfs/5.1.x.0/ansible-toolkit`
 
 
 ### Linux Stretch Cluster Installation
@@ -18,11 +17,13 @@
 1. Attach Redhat Subscription   
 
         vi /etc/resolv.conf
+
 1. Download the appropriate version of Spectrum Scale   
-1. Copy the self-extracting product image to a local directory (We use:  `/home/install/scale`)   
+1. Copy the self-extracting product image to a local directory (We use: `/home/install/scale`)   
 1. Make the file executible if needed   
 
         chmod Spectrum_Scale_Standard-5.1.7.x-x86_64-Linux-install
+        
 1. Extract    
 
         tar -xvf Scale_adv_5.1.7_ppc64le.tar
