@@ -7,7 +7,8 @@
 ## Implementation
 ### Install Python
 
-        dnf install python3.9 -y
-        
+        dnf install python3.9 -y  
 
-        python3 -m pip install --user ansible
+### Install Ansible
+
+        python3 -m pip install --user ansible  
