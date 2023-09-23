@@ -281,6 +281,7 @@ switchport description <port label>
 ```
  copy run start 
 ```
+
 ## Port Channel Configuration
 
 
@@ -306,7 +307,9 @@ no shut
 ```
 no interface port-channel 3
 ```
+
 ##  Misc Information
+
 ## Power Supply Modes
 Cisco MDS 9000 Series Multilayer Switches support different number and capabilities of power supplies. This section describes the power modes that are available on Cisco MDS 9000 Series Multilayer Switches.
 
@@ -323,6 +326,7 @@ You can configure one of the following power modes to use the combined power pro
 **Full-redundancy mode**—This mode is a combination of input-source (grid) and power-supply (N+1) redundancy modes. Similar to the input-source redundancy mode, this mode allocates half of the power supplies to the available category and the remaining power supplies to reserve category. One of the reserve power supplies can alternatively be used to provide power if a power supply used for the active power fails.
 
 For more information on the power supply modes supported on your switch, see the Hardware Installation Guide corresponding to your switch.
+
 ##  Links
 
 - [Recommended Releases for Cisco MDS 9000 Series Switches](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/sw/b_MDS_NX-OS_Recommended_Releases.html)
