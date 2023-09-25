@@ -1,4 +1,4 @@
 ---
-title: Title
+title: Home Page
 template: home.html
 ---
