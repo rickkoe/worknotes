@@ -161,6 +161,42 @@ mapsConfig --emailcfg -address rick.k@evolvingsol.com
 mapsconfig --show
 mapsconfig --testmail -subject "this is a test" -message "test email body"
 ```
+## FCIP Configuration
+### Circuit Requirements
+
+### Tunnel Rquirements
+
+### FCIP Configuration Checklist
+- <input type="checkbox"/> Have the Brocade platforms been installed into a rack?
+- <input type="checkbox"/> Have the Brocade platforms been connected to a dual power?
+- <input type="checkbox"/> Have the Brocade platforms been connected to the Mgmt network?
+- <input type="checkbox"/> Have the Brocade platforms been cabled to the storage replication ports?
+- <input type="checkbox"/> Have the Brocade platforms been cabled to the IP WAN network?
+- <input type="checkbox"/> The Brocade platform has undergone basic configuration for:
+    - <input type="checkbox"/> Switch name
+    - <input type="checkbox"/> Fabric name
+    - <input type="checkbox"/> Support Link
+    - <input type="checkbox"/> Domain ID
+    - <input type="checkbox"/> AAA (LDAP and RADIUS)
+    - <input type="checkbox"/> SSH access
+    - <input type="checkbox"/> DNS
+    - <input type="checkbox"/> NTP
+    - <input type="checkbox"/> IPfilter
+    - <input type="checkbox"/> syslog
+    - <input type="checkbox"/> default zoning
+    - <input type="checkbox"/> Any other security configurations
+- <input type="checkbox"/> Has the WAN IP network been provisioned and is the IP network operational from end-to-end?
+- <input type="checkbox"/> Specific to each platform, determine the required Application mode, VE Mode, and GE Mode settings?
+- <input type="checkbox"/> Determine the amount of bandwidth required to satisfy your replication needs?
+- <input type="checkbox"/> Determine the VE_Port you use for the tunnel? *Typically, the first one is used, and the same number on both ends.*
+- <input type="checkbox"/> Determine how many circuits that the tunnel needs for aggregate bandwidth and resiliency purposes? *Will additional circuits be needed for failover (metric-0 and metric-1)? Often when using BET, failover circuits are not needed.*
+- <input type="checkbox"/> Determine the minimum and maximum bandwidth of each circuit? *If ARL is not being used, setting the minimum = maximum rate disables ARL and enables Committed Information Rate (CIR) at the rate specified*
+- <input type="checkbox"/> Determine which GE interfaces will be used for each circuit?
+- <input type="checkbox"/> Obtain the IP subnets, subnet masks, and end-to-end network MTU. *Assign IP addresses from the subnets to IPIF of each circuit*
+- <input type="checkbox"/> Determine local and remote IP addresses for each circuit?
+- <input type="checkbox"/> Determine local and remote eHCL IP addresses for each circuit? *Configuring eHCL is optional and the extension platform must support eHCL.*
+- <input type="checkbox"/> If the local and remote subnets are different, L3 network, determine the gateway IP address. Frequently, there is only one gateway; however, there could be different gateways for different remote subnets. *The gateway is on the same subnet as the IP address of the IPIF that uses the gateway. The route also contains the remote subnet and its mask.*
+
 ## Brocade SAN Switch Licenses
 In order to activate a license, you must have a **Transaction Key** for each license to be activated along with the **License ID** (LID) of the appropriate switch.
 ### Obtaining the Transaction Key
@@ -245,3 +281,4 @@ Go to this URL and follow the steps to download and install Brocade SAN Health D
 1. Start the Audit on the Capture tab after all other tabs are complete and all fabrics have been discovered successfully.  The file will upload automatically after all data is completed.
 ![Start The Audit](assets/images/san-health-5.png)
 1. It may take up to several hours for the report to be generated.  When it is ready for download, you will receive notification by email.  You will be instructed to download the report from [https://support.broadcom.com](https://support.broadcom.com). Your consultant will also receive a copy of the report if you entered their email in the Optional Additional Recipients field.
+
