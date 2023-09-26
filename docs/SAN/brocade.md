@@ -163,8 +163,41 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
 ```
 ## FCIP Configuration
 ### Circuit Requirements
+The following requirements and limitations are applicable for extension circuits:
+- Each circuit has a unique pair of source and destination IP addresses.
+- An IP interface (IPIF) defines an IP address associated with a circuit endpoint and GE interface.
+- The maximum rate of a circuit cannot exceed the GE interface speed.
+- On a GE interface, defining multiple IPIFs allows multiple circuits on that interface.
+- A VE_Port with multiple circuits is a Brocade Extension Trunk (BET).
+- If the source and destination IP addresses of a circuit are not on the same subnet, an IP route must be configured on both ends.
+- Metric-0 circuits are active under normal operating conditions within the failover group.
+- Metric-1 circuits are active when all metric-0 circuits within the failover group have gone offline.
+- A failover group control which metric-1 circuits become active when metric-0 circuits in the group go offline.
+- When a spillover is configured, failover groups are not used.
+- When a spillover is configured, metric-1 circuits are used when the capacity of the metric-0 circuit is exceeded.
+- 4:1 Rule: Within a tunnel, consider the ARL minimum rates, the difference between the slowest min rate and the fastest min rate can be no greater than 4x.
+    - For example, minimum rates are Cir0=1Gb/s and Cir1=4Gb/s is supported; however, Cir0=1Gb/s and Cir1=5Gb/s is not.
+    - If circuits are configured with rates greater than 4x apart, entire bandwidth of the BET might not be fully utilized.
+- Minimum supported bandwidth as follows:
+    - Brocade 7810 Extension Switch is 20Mb/s.
+    - Brocade 7850 Extension Switch is 50Mb/s.
+    - Brocade SX6 Extension Blade is 20Mb/s.
+- Circuit settings should be identical on both ends including minimum and maximum bandwidth values and KATOV. There are some settings that must match on both ends, otherwise the circuit will not function.
+### WAN Limits
+- The maximum supported RTT of 250 ms @ 1.0% packet loss with a KATOV configuration of 2 seconds or more.
+- The RTT of 200 ms @ 0.1% packet loss is supported on all KATOV configurations.
+- These limits are the same on all supported platforms.
 
 ### Tunnel Rquirements
+A Brocade Extension platform has the following tunnel requirements:
+- The difference between a minimum and maximum circuit bandwidth of a tunnel cannot exceed a factor of 5:1.
+- VE_Ports are not associated with any particular GE interface.
+- Tunnel settings must be identical on both ends.
+    - If there is a mismatch in IPsec, compression, FastWrite, OSTP, and FICON settings, the tunnel fails to come up.
+- Best practice is to not implement multiple VE_Ports between the same domains.
+    - With each application having unique requirements, it should be confined to a particular logical fabric, which will have a designated domain of its own. Each logical fabric should have a single tunnel (one VE_Port) with multiple circuits between the two domains.
+- VE_Ports cannot connect between the same two domains while E_Ports or EX_Ports are connected in parallel.
+    - It is not possible to have simultaneous VE_Ports and E_Ports between the same two domains. For example, Extension FCIP plus native FC over DWDM between the same two switches.
 
 ### FCIP Configuration Checklist
 - <input type="checkbox"/> Have the Brocade platforms been installed into a rack?
@@ -197,6 +230,39 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
 - <input type="checkbox"/> Determine local and remote eHCL IP addresses for each circuit? *Configuring eHCL is optional and the extension platform must support eHCL.*
 - <input type="checkbox"/> If the local and remote subnets are different, L3 network, determine the gateway IP address. Frequently, there is only one gateway; however, there could be different gateways for different remote subnets. *The gateway is on the same subnet as the IP address of the IPIF that uses the gateway. The route also contains the remote subnet and its mask.*
 
+### FCIP Configuration Steps
+#### Configure GE Interfaces
+1. Enter `portcfgge` command with the `--help` option:
+        portcfgge --help
+1. Show the GE Interfaces and amke note of speed and WAN or LAN indication.  A flag of **L** means it is set for LAN (don't want this for FCIP).  No **L** indicates it is set for WAN (this is correct).
+        portcfgge --show
+1. Set the GE port to 10G
+        portcfgge ge2 --set -speed 10G
+        portcfgge ge3 --set -speed 10G
+1. Assign IP addresses to the IP interfaces
+        portcfg ipif ge2 create 10.42.148.237/24
+        portcfg ipif ge3 create 10.42.148.238/24
+1. Show the IP interfaces
+        portshow ipif
+1. Create FCIP tunnel (Do on both sides)
+        portcfg fciptunnel 12 create
+        portcfg fciptunnel 12 modify --fc-compression fast-deflate
+1. Create circuits (Do on both sides) 
+        portcfg fcipcircuit 12 create 0
+        portcfg fcipcircuit 12 create 1
+1. Add circuit IP addresses (Do on both sides)
+        portcfg fcipcircuit 12 modify 0 --local-ip 10.0.0.5 --remote-ip 192.168.0.5
+        portcfg fcipcircuit 12 modify 1 --local-ip 10.0.0.6 --remote-ip 192.168.0.6
+1. Set min and max bandwidth (Do on both sides)
+        portcfg fcipcircuit 12 modify 0 --min 1G --max 10G
+        portcfg fcipcircuit 12 modify 1 --min 1G --max 10G
+
+
+
+PLASBIEVEN2 eth2                          10.42.148.235
+PLASBIEVEN2 eth3                          10.42.148.236
+PLASBIODD2 eth2                           10.42.148.237
+PLASBIODD2 eth3                           1042.148.238
 ## Brocade SAN Switch Licenses
 In order to activate a license, you must have a **Transaction Key** for each license to be activated along with the **License ID** (LID) of the appropriate switch.
 ### Obtaining the Transaction Key
