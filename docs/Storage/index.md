@@ -5,7 +5,7 @@
 - [IBM DS8000](ds8000.md)
 
 ## Software Defined Storage
-- [Ceph](ceph.md)
+- [IBM Ceph](ceph.md)
 - [IBM Spectrum Scale](scale.md)
 - [IBM Spectrum Archive](archive.md)
-- [IBM Cloud Object Storage][icos.md]
+- [IBM Cloud Object Storage](icos.md)
