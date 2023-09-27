@@ -252,7 +252,15 @@ The following notification was sent out relating to additional IP address change
 
 ## Procedures
 -   [Setup FlashSystem Remote Copy](/storage/ibm/flashsystem/remote-copy)
--   [Export Config XML File](/storage/ibm/flashsystem/config-export)
+### Export Config XML File
+1. Log into the GUI
+1. In the left menu, select Settings → Support
+![Support](assets/images/config-xml-1.png)
+1. Select Support Package and click on the Download Support Package option and choose Download Existing Package
+![Support Package](assets/images/config-xml-2.png)
+1. In the filter on the top right, enter `cron.xml` and hit enter.  Select the file, and click Download
+![Filter](assets/images/config-xml-3.png)
+1. The file will be downloaded by your browser (typically to your Download folder).
 
 
 ## Scripts
