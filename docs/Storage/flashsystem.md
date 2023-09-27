@@ -14,14 +14,14 @@ Find configuration limits and restrictions, release notes, and product documenta
 ### Implementation Guide
 *A great reference to use during initial implementation of a new FlashSystem*
 
--   [Implementation Guide for IBM Spectrum Virtualize Version 8.5](https://www.redbooks.ibm.com/abstracts/sg248520.html)
+-   [Implementation Guide for IBM Storage Virtualize Version 8.5](https://www.redbooks.ibm.com/abstracts/sg248520.html)
 
 
 ### Best Practices Guide
 *Use these guides to ensure you are following best practices for zoning, copy services, host connectivity, etc.*
 
 -   [IBM FlashSystem Best Practices and Performance Guidelines](https://www.redbooks.ibm.com/abstracts/sg248503.html)
--   [Performance and Best Practices Guide for IBM Spectrum Virtualize 8.5](https://www.redbooks.ibm.com/abstracts/sg248521.html)
+-   [Performance and Best Practices Guide for IBM Storage Virtualize 8.5](https://www.redbooks.ibm.com/abstracts/sg248521.html)
 
 
 *Use this next guide to ensure you are following best practices when connecting to VMware*
@@ -32,22 +32,22 @@ Find configuration limits and restrictions, release notes, and product documenta
 ### Microcode Guidance
 *If you are upgrading microcode, use this link to determine the latest (LTS) recommended code level along with other levels that are available (non-LTS)*
 
--   [Recommended Code Levels](https://www.ibm.com/support/pages/spectrum-virtualize-family-products-upgrade-planning)
--   [Supported Drive Types and Firmware Levels](https://www.ibm.com/support/pages/node/873170)
+- [Recommended Code Levels](https://www.ibm.com/support/pages/ibm-storage-virtualize-family-products-upgrade-planning)
+- [Supported Drive Types and Firmware Levels](https://www.ibm.com/support/pages/node/873170)
 - [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
 
 
 *This link will show if you are able to upgrade directly to another code level, or if you have to upgrade in two steps.*
 
--   [Concurrent Code Upgrade Paths](https://www.ibm.com/support/pages/node/5692850)
+- [Concurrent Code Upgrade Paths](https://www.ibm.com/support/pages/node/5692850)
 
 
 ### Other Stuff
--   [CSM ESE Sizer](https://www.ibm.com/support/pages/node/6372180)
--   [Ansible and IBM Storage](https://www.ansible.com/integrations/infrastructure/ibm-storage)
+- [CSM ESE Sizer](https://www.ibm.com/support/pages/node/6372180)
+- [Ansible and IBM Storage](https://www.ansible.com/integrations/infrastructure/ibm-storage)
 -	[IBM Storage Ansible Modules](https://galaxy.ansible.com/ibm/spectrum_virtualize)
--   [Enable the VMware iSER Adapter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-4F2C10BB-3705-4040-BFDE-A190FE273060.html)
--   [Vdbench Downloads and User Guide](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
+- [Enable the VMware iSER Adapter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-4F2C10BB-3705-4040-BFDE-A190FE273060.html)
+- [Vdbench Downloads and User Guide](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
 
 
 ## Implementation
@@ -117,36 +117,6 @@ There are two options for snapshot behavior if the pool fills up.
 ### Spectrum Virtualize Remote Support IP Addresses
 
 
-#### **Content**
-
-To continue to allow IBM to provide remote support for your Spectrum Virtualize system, you need to make some changes to your environment before the end of December 2022.
-
-**Update:** Due to an unexpected infrastructure change there will only be a single, non-redundant, remote support server available to support clients between 1 November 2022 and 31 December 2022.  Clients are advised to update their environments to use the new servers before the end of October.
-
-There are also changes to Fix Central IP addresses that require changes before the next Remote Code Upgrade is scheduled.
-
-The new remote support IP addresses are active and ready to use.  For security reasons they do not respond to ping requests.
-
-**_Spectrum Virtualize Configuration_**
-
-The Spectrum Virtualize configuration must be updated to add the new IP addresses.
-
-The simplest way to achieve this change is to download and run the software upgrade test utility v36.0 or higher, which updates the configuration automatically. 
-
-Alternatively, use the mksystemsupportcenter -proxy no -ip X.X.X.X -port 22  command to add the additional IP addresses manually.
-
-The list of currently configured remote support servers can be validated by using the lssystemsupportcentercommand.
-
-**Note**:  It is not possible to delete the default system support center servers (id 0 and 1).
-
-**_Remote Support Proxy_**
-
-IBM provides an optional product known as a Remote Support proxy that can be installed in your environment.  This proxy coalesces the remote support traffic for multiple storage devices into a single server and tunnels the traffic through an HTTPS connection.
-
-Any Remote Support Proxy installations must be upgraded to v1.3.2 or higher
-
-**Note:**  The Remote Support proxy was deprecated in Spectrum Virtualize 8.4.2 and higher.  The newer releases of software can use an industry standard HTTP proxy instead of the Remote Support proxy.
-
 **_Firewall Configuration_**
 
 Any firewall holes that were created to allow connections to the current IP addresses must be updated with the new IP addresses.
@@ -156,94 +126,29 @@ Any firewall holes that were created to allow connections to the current IP addr
 | Existing Remote Support Servers<br><br>*These firewall holes can be removed once new servers are configured and running* | The service IP address of every node or node canister | 129.33.206.139 204.146.30.139 | 22  | ssh | Outbound only |
 | New Remote Support Servers | The service IP address of every node or node canister | 170.225.126.11<br><br>170.225.126.12<br><br>170.225.127.11<br><br>170.225.127.12 | 22  | ssh | Outbound only |
 
-  
- 
-
 > Port 22 is used for direct connections, but any traffic routed through either an HTTP proxy or the dedicated remote support proxy use port 443
-{.is-info}
-
-
-  
-  
- 
-
-**_HTTP Proxy Configuration_**
-
-  
- 
-
-Any HTTP proxies that are used for Remote Support connections might need to update configurations to allow connections to the new IP addresses.
-
-  
-  
- 
-
-**_IP address details_**
-
-  
- 
-
-The current IP addresses used for remote support are:
-
--   129.33.206.139
--   204.146.30.139
-
-  
- 
-
+#### IP address details
 The new IP addresses for remote support are:
 
 -   170.225.126.11 - xrsc-front-srv-1.southdata.ibm.com
 -   170.225.126.12 - xrsc-front-srv-2.southdata.ibm.com
 -   170.225.127.11 - xrsc-front-srv-3.eastdata.ibm.com
 -   170.225.127.12 - xrsc-front-srv-4.eastdata.ibm.com
-
-  
- 
-
-**_Fix Central Code Download - Firewall Configuration_**
-
-  
- 
-
+#### Fix Central Code Download - Firewall Configuration
 IBM Announced in [https://www.ibm.com/support/pages/node/6573219](https://www.ibm.com/support/pages/node/6573219) that there would be a number of changes to some central support infrastructure. 
-
-  
- 
-
-The only impact of this announcement for Spectrum Virtualize customers is related to downloading code directly from Fix Central as part of the Remote Code Load process.
-
-  
- 
-
-Systems running V8.4.1 or earlier that have configured their systems to use Remote Code Load might also need to update their firewall rules because the IP addresses of delivery04.dhe.ibm.com are changing. The only change required is to update firewall rules to permit connections to the replacement IP addresses
-
-  
- 
 
 Direct connection to Fix Central on port 22 was deprecated in V8.4.2.  Systems running V8.4.2 or higher download code via esupport.ibm.com on port 443.
 
-  
- 
+**The Fix Central DNS names were updated to point to the new IP addresses on 4 June 2022.  Storage Virtualize devices use DNS to connect to Fix Central, therefore all connections will automatically be connecting to the new IP addresses.**
 
-**The Fix Central DNS names were updated to point to the new IP addresses on 4 June 2022.  Spectrum Virtualize devices use DNS to connect to Fix Central, therefore all connections will automatically be connecting to the new IP addresses.**
-
-  
- 
 
 |     | Source | Target | Port | Protocol | Direction |
 | --- | --- | --- | --- | --- | --- |
-| Existing Fix Central IP addresses<br><br>*These IP addresses are no longer usable, so the firewall holes should be removed.* | The service IP address of every node or node canister | 170.225.15.105<br><br>170.225.15.104<br><br>170.225.15.107<br><br>129.35.224.105<br><br>129.35.224.104<br><br>129.35.224.107 | 22  | sftp | Outbound only |
-| --- | --- | --- | --- | --- | --- |
 | New Fix Central IP addresses | The service IP address of every node or node canister | 170.225.126.44 | 22  | sftp | Outbound only |
-| --- | --- | --- | --- | --- | --- |
 
-  
- 
+**_Additional IBM Support IP address changes that do not affect Storage Virtualize products._**
 
-**_Additional IBM Support IP address changes that do not affect Spectrum Virtualize products._**
-
-The following notification was sent out relating to additional IP address changes.  These changes do not affect Spectrum Virtualize products
+The following notification was sent out relating to additional IP address changes.  These changes do not affect Storage Virtualize products
 
 [https://www.ibm.com/support/pages/node/6587781](https://www.ibm.com/support/pages/node/6587781)
 
