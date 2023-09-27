@@ -14,19 +14,19 @@ Find configuration limits and restrictions, release notes, and product documenta
 ### Implementation Guide
 *A great reference to use during initial implementation of a new FlashSystem*
 
--   [Implementation Guide for IBM Storage Virtualize Version 8.5](https://www.redbooks.ibm.com/abstracts/sg248520.html)
+- [Implementation Guide for IBM Storage Virtualize Version 8.5](https://www.redbooks.ibm.com/abstracts/sg248520.html)
 
 
 ### Best Practices Guide
 *Use these guides to ensure you are following best practices for zoning, copy services, host connectivity, etc.*
 
--   [IBM FlashSystem Best Practices and Performance Guidelines](https://www.redbooks.ibm.com/abstracts/sg248503.html)
--   [Performance and Best Practices Guide for IBM Storage Virtualize 8.5](https://www.redbooks.ibm.com/abstracts/sg248521.html)
+- [IBM FlashSystem Best Practices and Performance Guidelines](https://www.redbooks.ibm.com/abstracts/sg248503.html)
+- [Performance and Best Practices Guide for IBM Storage Virtualize 8.5](https://www.redbooks.ibm.com/abstracts/sg248521.html)
 
 
 *Use this next guide to ensure you are following best practices when connecting to VMware*
 
--   [IBM FlashSystem and VMware Implementation and Best Practices Guide](http://www.redbooks.ibm.com/abstracts/sg248505.html?Open)
+- [IBM FlashSystem and VMware Implementation and Best Practices Guide](http://www.redbooks.ibm.com/abstracts/sg248505.html?Open)
 
 
 ### Microcode Guidance
@@ -61,40 +61,40 @@ Find configuration limits and restrictions, release notes, and product documenta
 
 The following items are a summary of the most common steps that need to be completed on every implementation.  Some items may not pertain to specific hardware configs (e.g. IP replication), but verifying installs using this list will cover the most critical aspects of a thorough implementation.
 
--   <input type="checkbox"/> Power Up
--   <input type="checkbox"/> Configure cluster using the [technician port](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=system-initializing-technician-port-ssr-task)
--   <input type="checkbox"/> Use a web browser to open: *https://your\_management\_IP*
--   <input type="checkbox"/> Log in to the management GUI for the first time by using ID *superuser* and password *passw0rd*.
--   <input type="checkbox"/> After you log in, the initial setup wizard helps you get started.  Use the information on your [worksheets](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=planning-worksheets) to inform your inputs.
-    -   <input type="checkbox"/> Welcome
-    -   <input type="checkbox"/> License Agreement
-    -   <input type="checkbox"/> Change Password
-    -   <input type="checkbox"/> System Name
-    -   <input type="checkbox"/> Licensed Functions
-    -   <input type="checkbox"/> Date and Time
-    -   <input type="checkbox"/> Encryption (license required)
-    -   <input type="checkbox"/> Call Home
-    -   <input type="checkbox"/> Storage Insights
-    -   <input type="checkbox"/> Support Assistance
-    -   <input type="checkbox"/> Automatic Configuration
-    -   <input type="checkbox"/> Summary
--   <input type="checkbox"/> Add additional Control or Expansion Enclosures (if required)
--   <input type="checkbox"/> Configure the following:
-    -   <input type="checkbox"/> [Set the Service IPs](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=problem-procedure-changing-service-ip-address-node-canister)
-    -   <input type="checkbox"/> Ethernet IPs for ISCSI or IP replication
-    -   <input type="checkbox"/> [Ethernet Portsets](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=overview-portsets)
-    -   <input type="checkbox"/> [Volume Protection](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=volumes-volume-protection) (recommend leaving on)
-    -   <input type="checkbox"/> Call Home / Email Notifications
-    -   <input type="checkbox"/> SNMP
-    -   <input type="checkbox"/> Syslog
-    -   <input type="checkbox"/> LDAP (if desired)
--   <input type="checkbox"/> Enable Encryption ([USB](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=management-enabling-encryption-usb-flash-drives) or [SKLM](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=management-enabling-encryption-key-servers))
--   <input type="checkbox"/> Create encrypted pool with data reduction turned off and 1024 extent size (default in GUI)
--   <input type="checkbox"/> Add storage to the pool (DRAID6, typically take all defaults in GUI).
--   <input type="checkbox"/> Modify I/O Group bitmap space (CLI or now in GUI of newer code)
--   <input type="checkbox"/> Modify fibre channel port masking (if needed for replication)
--   <input type="checkbox"/> [Update System Software](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=updating-system-software)
--   <input type="checkbox"/> [Update Drive Firmware](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=software-updating-drive-firmware)
+- <input type="checkbox"/> Power Up
+- <input type="checkbox"/> Configure cluster using the [technician port](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=system-initializing-technician-port-ssr-task)
+- <input type="checkbox"/> Use a web browser to open: *https://your\_management\_IP*
+- <input type="checkbox"/> Log in to the management GUI for the first time by using ID *superuser* and password *passw0rd*.
+- <input type="checkbox"/> After you log in, the initial setup wizard helps you get started.  Use the information on your [worksheets](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=planning-worksheets) to inform your inputs.
+    - <input type="checkbox"/> Welcome
+    - <input type="checkbox"/> License Agreement
+    - <input type="checkbox"/> Change Password
+    - <input type="checkbox"/> System Name
+    - <input type="checkbox"/> Licensed Functions
+    - <input type="checkbox"/> Date and Time
+    - <input type="checkbox"/> Encryption (license required)
+    - <input type="checkbox"/> Call Home
+    - <input type="checkbox"/> Storage Insights
+    - <input type="checkbox"/> Support Assistance
+    - <input type="checkbox"/> Automatic Configuration
+    - <input type="checkbox"/> Summary
+- <input type="checkbox"/> Add additional Control or Expansion Enclosures (if required)
+- <input type="checkbox"/> Configure the following:
+    - <input type="checkbox"/> [Set the Service IPs](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=problem-procedure-changing-service-ip-address-node-canister)
+    - <input type="checkbox"/> Ethernet IPs for ISCSI or IP replication
+    - <input type="checkbox"/> [Ethernet Portsets](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=overview-portsets)
+    - <input type="checkbox"/> [Volume Protection](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=volumes-volume-protection) (recommend leaving on)
+    - <input type="checkbox"/> Call Home / Email Notifications
+    - <input type="checkbox"/> SNMP
+    - <input type="checkbox"/> Syslog
+    - <input type="checkbox"/> LDAP (if desired)
+- <input type="checkbox"/> Enable Encryption ([USB](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=management-enabling-encryption-usb-flash-drives) or [SKLM](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=management-enabling-encryption-key-servers))
+- <input type="checkbox"/> Create encrypted pool with data reduction turned off and 1024 extent size (default in GUI)
+- <input type="checkbox"/> Add storage to the pool (DRAID6, typically take all defaults in GUI).
+- <input type="checkbox"/> Modify I/O Group bitmap space (CLI or now in GUI of newer code)
+- <input type="checkbox"/> Modify fibre channel port masking (if needed for replication)
+- <input type="checkbox"/> [Update System Software](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=updating-system-software)
+- <input type="checkbox"/> [Update Drive Firmware](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=software-updating-drive-firmware)
 ### Safguarded Copy Implementation
 #### What if the pools fills up?
 There is a system wide setting that is set by using the `chsystem` command that will dictate what happens to safeguarded snapshots and their source volumes when you run out of space in the pool.
@@ -126,7 +126,6 @@ Any firewall holes that were created to allow connections to the current IP addr
 | Existing Remote Support Servers<br><br>*These firewall holes can be removed once new servers are configured and running* | The service IP address of every node or node canister | 129.33.206.139 204.146.30.139 | 22  | ssh | Outbound only |
 | New Remote Support Servers | The service IP address of every node or node canister | 170.225.126.11<br><br>170.225.126.12<br><br>170.225.127.11<br><br>170.225.127.12 | 22  | ssh | Outbound only |
 
-> Port 22 is used for direct connections, but any traffic routed through either an HTTP proxy or the dedicated remote support proxy use port 443
 #### IP address details
 The new IP addresses for remote support are:
 
@@ -137,9 +136,10 @@ The new IP addresses for remote support are:
 #### Fix Central Code Download - Firewall Configuration
 IBM Announced in [https://www.ibm.com/support/pages/node/6573219](https://www.ibm.com/support/pages/node/6573219) that there would be a number of changes to some central support infrastructure. 
 
-Direct connection to Fix Central on port 22 was deprecated in V8.4.2.  Systems running V8.4.2 or higher download code via esupport.ibm.com on port 443.
+!!! info
 
-**The Fix Central DNS names were updated to point to the new IP addresses on 4 June 2022.  Storage Virtualize devices use DNS to connect to Fix Central, therefore all connections will automatically be connecting to the new IP addresses.**
+    - Direct connection to Fix Central on port 22 was deprecated in V8.4.2.  Systems running V8.4.2 or higher download code via esupport.ibm.com on port 443.
+    - The Fix Central DNS names were updated to point to the new IP addresses on 4 June 2022.  Storage Virtualize devices use DNS to connect to Fix Central, therefore all connections will automatically be connecting to the new IP addresses.
 
 
 |     | Source | Target | Port | Protocol | Direction |
@@ -156,7 +156,7 @@ The following notification was sent out relating to additional IP address change
  
 
 ## Procedures
--   [Setup FlashSystem Remote Copy](/storage/ibm/flashsystem/remote-copy)
+
 ### Export Config XML File
 1. Log into the GUI
 1. In the left menu, select Settings → Support
@@ -172,6 +172,10 @@ The following notification was sent out relating to additional IP address change
 ### Determine Remote Copy Status
 #### Objective
 This script will list the progress of all remote copy relationships defined on the system.  It will output the source volume name followed by the “progress” percentage. 
+
+!!! note
+
+    This is based on the OLD remote copy technology.  This should not be used for Policy Based Replication
 
 
 #### Script Syntax
