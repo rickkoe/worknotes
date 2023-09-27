@@ -95,6 +95,25 @@ The following items are a summary of the most common steps that need to be compl
 -   <input type="checkbox"/> Modify fibre channel port masking (if needed for replication)
 -   <input type="checkbox"/> [Update System Software](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=updating-system-software)
 -   <input type="checkbox"/> [Update Drive Firmware](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=software-updating-drive-firmware)
+### Safguarded Copy Implementation
+#### What if the pools fills up?
+There is a system wide setting that is set by using the `chsystem` command that will dictate what happens to safeguarded snapshots and their source volumes when you run out of space in the pool.
+You can check your current setting by using the command 
+```
+lssystem | grep parent
+```
+
+There are two options for snapshot behavior if the pool fills up.  
+
+-	Default behavior is that the prod volume will go offline to protect the snapshots (similar to what happened when child pool filled up with the old safeguarded backups).
+    ```
+    chsystem -snapshotpreserveparent no
+    ```
+-	Optional behavior is to keep the prod volumes online and have the oldest snapshot deleted:
+    ```
+    chsystem -snapshotpreserveparent yes
+    ```
+![Snapshot preserve parent help](assets/images/snapshot-preserve-parent.png)
 ### Spectrum Virtualize Remote Support IP Addresses
 
 
