@@ -27,7 +27,7 @@ Displaying power usage information
 
 ```
 show environment power
-````
+```
 
 Configuring the Power Supply Mode
 
