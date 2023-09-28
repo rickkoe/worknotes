@@ -3,11 +3,14 @@
 ### Procedures
 - [Procedure to collect show tech-support logs](/cisco-mds/mds-tech-support)
 ### Implementation Checklist
-Enter configuration mode:
+Enter configuration mode:  
+
 ```
 config t
 ```
+
 Rename a device-alias:
+
 ```
 device-alias database
 device-alias rename {old_name} {new_name}
@@ -15,21 +18,26 @@ device-alias commit
 ```
 
 Save configuration changes
+
 ```
 copy run start
 ```
+
 Displaying power usage information
+
 ```
 show environment power
 ````
 
 Configuring the Power Supply Mode
+
 ```
 configure terminal
 power redundancy-mode {combined | insrc-redundant | ps-redundant |redundant}
 (Optional) show environment power
 (Optional) copy running-config startup-config
 ```
+
 Power Cycling Modules
 Step 1	
 Identify the module that needs to be reset.
@@ -38,272 +46,330 @@ Step 2
 Issue the reload module command to reset the identified module. This command power cycles the selected module.
 Caution 	
 Reloading a module disrupts traffic through the module.
+
 ```
 reload module 2
 ```
 
 
 ### Microcode Guidance
+
 - [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
+
 ## Implementation Checklist
+
 - <input type="checkbox"/> Enter configuration mode
+
 ```
     config 
 ```
 
 - <input type="checkbox"/> Set password to pre-defined secure password 
+
 ```
  username admin password <new password>   
 ```
 
 - <input type="checkbox"/> Set the switch name 
+
 ```
  switchname <switch name> 
 ```
 
 - <input type="checkbox"/> Set IP address and subnet mask
+
 ```
  int mgmt 0 ; ip address 10.0.0.10 255.255.255.0 
 ```
 
 - <input type="checkbox"/> Set default gateway 
+
 ```
  ip default-gateway 10.0.0.1
 ```
 
 - <input type="checkbox"/> Enable SSH 
+
 ```
  ssh key rsa 1024 force ; feature ssh 
 ```
 
 - <input type="checkbox"/> Disable Telnet 
+
 ```
  no feature telnet 
 ```
 
 - <input type="checkbox"/> Enable http-server 
+
 ```
  feature http-server 
 ```
 
 - <input type="checkbox"/> Configure timezone 
+
 ```
  clock timezone CST -6 0 
 ```
 
 - <input type="checkbox"/> Configure clock 
+
 ```
  clock set 15:30:00 29 September 2020 
 ```
 
-- <input type="checkbox"/> Configure summertime 
+- <input type="checkbox"/> Configure summertime
+
 ```
  clock summer-time CDT 2 Sunday March 02:00 1 Sunday November 02:00 60 
 ```
 
 - <input type="checkbox"/> Enable NPIV feature 
+
 ```
  feature npiv 
 ```
 
 - <input type="checkbox"/> Configure NTP server 
+
 ```
  ntp server ntp.server.com 
 ```
 
 - <input type="checkbox"/> Configure default switchport interface state 
+
 ```
  system default switchport shutdown 
 ```
 
 - <input type="checkbox"/> Configure default switchport trunk mode 
+
 ```
  system default switchport trunk mode on 
 ```
 
 - <input type="checkbox"/> Configure switchport mode 
+
 ```
  interface fc1/1-96 ; switchport mode auto ; exit 
 ```
 
 - <input type="checkbox"/> Configure default zone policy 
+
 ```
  no system default zone default-zone permit 
 ```
 
 - <input type="checkbox"/> Enable full zoneset distribution 
+
 ```
  system default zone distribute full 
 ```
 
 - <input type="checkbox"/> Create VSAN(s) 
+
 ```
  vsan database ; vsan 10 
 ```
 
 - <input type="checkbox"/> Name VSAN 
+
 ```
  vsan 10 name fabricA 
 ```
 
 - <input type="checkbox"/> Assign ports to VSAN(s) 
+
 ```
  vsan database ; vsan 10 interface fc1/1-96 
 ```
 
 - <input type="checkbox"/> Configure default zone mode (basic/enhanced) 
+
 ```
  zone mode enhanced vsan 10 
 ```
 
 - <input type="checkbox"/> Configure zoning confirm-commit 
+
 ```
  zone confirm-commit enable vsan 10 
 ```
 
 - <input type="checkbox"/> Enable smart zoning 
+
 ```
  zone smart-zoning enable vsan 10 
 ```
 
 - <input type="checkbox"/> Configure device-alias mode (basic/enhanced) 
+
 ```
  device-alias mode enhanced 
 ```
 
 - <input type="checkbox"/> Configure device-alias confirm-commit 
+
 ```
  device-alias confirm-commit enable 
 ```
 
 - <input type="checkbox"/> Configure domain name 
+
 ```
  ip domain-name lookup ; ip domain-name demo.com 
 ```
 
 - <input type="checkbox"/> Configure DNS 
+
 ```
  ip name-server 1.1.1.1 2.2.2.2 
 ```
 
 - <input type="checkbox"/> Verify licenses (POD, etc) 
+
 ```
      
 ```
 
 - <input type="checkbox"/> Configure zoning 
+
 ```
  !Full Zone Database Section for vsan 
 ```
 
 - <input type="checkbox"/> Import fcaliases to device-alias 
+
 ```
  device-alias import fcalias vsan 10 ; device-alias commit 
 ```
 
 - <input type="checkbox"/> Update NX-OS 
+
 ```
      
 ```
 
 - <input type="checkbox"/> Configure static domain-id 
+
 ```
  fcdomain domain 11 static vsan 10 
 ```
 
 - <input type="checkbox"/> Configure contact name 
+
 ```
  snmp-server contact John Doe 
 ```
 
 - <input type="checkbox"/> Configure contact email address 
+
 ```
  callhome ; email-contact johndoe@demo.com 
 ```
 
 - <input type="checkbox"/> Configure contact phone 
+
 ```
  callhome ; phone-contact +1-123-456-7890 
 ```
 
 - <input type="checkbox"/> Configure contact street address 
+
 ```
  callhome ; streetaddress 123 North Street, DemoVille, MN 55555 
 ```
 
 - <input type="checkbox"/> Configure site-id 
+
 ```
  callhome ; site-id Site1 
 ```
 
 - <input type="checkbox"/> Call home distribute 
+
 ```
  callhome ; distribute 
 ```
 
 - <input type="checkbox"/> Call home destination profile 
+
 ```
  callhome ; destination-profile full-txt-destination email-addr DemoTeam@demo.com 
 ```
 
 - <input type="checkbox"/> Email From 
+
 ```
  callhome ; transport email from DemoTeam@demo.com 
 ```
 
 - <input type="checkbox"/> Email Reply To 
+
 ```
  callhome ; transport email reply-to switch1@demo.com 
 ```
 
 - <input type="checkbox"/> SMTP Server 
+
 ```
  callhome ; transport email smtp-server smtprelay.demo.com port 25 
 ```
 
 - <input type="checkbox"/> Enable call home 
+
 ```
  callhome ; enable 
 ```
 
 - <input type="checkbox"/> Commit call home 
+
 ```
  callhome ; commit 
 ```
 
 - <input type="checkbox"/> Label the switch ports 
+
 ```
 interface fc1/1
 switchport description <port label>
 ```
 
-- <input type="checkbox"/> Copy run start 
+- <input type="checkbox"/> Copy run start
+
 ```
  copy run start 
 ```
 
 ## Port Channel Configuration
 
+!!! info
+    Ensure one or more ISL exists between the two switches.  Make sure they come up as “TE” ports with the correct VSANs.  ISLs can be in VSAN 1 or just in the VSAN that needs to be extended between two switches.
 
-> Ensure one or more ISL exists between the two switches.  Make sure they come up as “TE” ports with the correct VSANs.  ISLs can be in VSAN 1 or just in the VSAN that needs to be extended between two switches.
-{.is-info}
+
 #### Create a Port Channel
+
 ```
 interface port-channel 3
 channel mode active
 ```
+
 #### Add Ports to a Port Channel
+
 ```
 interface fc1/1-2
 channel-group 3 force
 ```
+
 #### Activate a Port Channel
+
 ```
 interface port-channel 3
 no shut
 ```
 
 #### Delete a Port channel
+
 ```
 no interface port-channel 3
 ```
@@ -330,4 +396,5 @@ For more information on the power supply modes supported on your switch, see the
 ##  Links
 
 - [Recommended Releases for Cisco MDS 9000 Series Switches](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/sw/b_MDS_NX-OS_Recommended_Releases.html)
-{.links-list}
+
+

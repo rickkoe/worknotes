@@ -166,6 +166,10 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
 - [Brocade® Fabric OS® Extension User Guide](https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-extension/9-2-x.html)
 ### FCIP Configuration Steps
 
+!!! note
+
+    The steps shown below are the steps followed in a real world implementation of Brocade 7810s with two 10G links. 
+
 #### Configure GE Interfaces
 1. Show the GE Interfaces and make note of speed and WAN or LAN indication.  A flag of **L** means it is set for LAN (don't want this for FCIP).  No **L** indicates it is set for WAN (this is correct).  
         ```
