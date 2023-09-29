@@ -30,20 +30,27 @@ You can run ansible modules directly with the command:  `ansible`
 You can run an ansible playbook using the command:  `ansible-playbook`
 
 #### Hello World! Playbook Example
+1. Create the emply playbook file
 
-```
-cd /etc/ansible/playbooks
-vi helloworld.yml
+    ```
+    cd /etc/ansible/playbooks
+    vi helloworld.yml
+    ```
 
----
-- name: My second playbook
-  hosts: localhost
+1. Enter the following contents in the playbook YAML file
 
-  tasks:
-  - name: Print Hello World!
-    debug: msg="Hello World!"
+    ```
+    ---
+    - name: My second playbook
+    hosts: localhost
 
-<esc> wq
+    tasks:
+    - name: Print Hello World!
+        debug: msg="Hello World!"
+    ```
 
-ansible-playbook helloworld.yml
-```
+1. Run the playbook
+
+    ```
+    ansible-playbook helloworld.yml
+    ```
