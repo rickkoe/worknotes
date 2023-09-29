@@ -6,6 +6,9 @@
 - [Online YAML Tools](onlineyamltools.com/edit-yaml)
 - [Code Beautify](codebeautify.ort/yaml-editor-online)
 
+## Stuff I care about
+- [IBM Storage Virtualize Collection](https://github.com/ansible-collections/ibm.storage_virtualize)
+
 ## Implementation
 ### Install Python
 
