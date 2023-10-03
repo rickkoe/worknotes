@@ -20,13 +20,8 @@ Find configuration limits and restrictions, release notes, and product documenta
 ### Best Practices Guide
 *Use these guides to ensure you are following best practices for zoning, copy services, host connectivity, etc.*
 
-- [IBM FlashSystem Best Practices and Performance Guidelines](https://www.redbooks.ibm.com/abstracts/sg248503.html)
-- [Performance and Best Practices Guide for IBM Storage Virtualize 8.5](https://www.redbooks.ibm.com/abstracts/sg248521.html)
-
-
-*Use this next guide to ensure you are following best practices when connecting to VMware*
-
-- [IBM FlashSystem and VMware Implementation and Best Practices Guide](http://www.redbooks.ibm.com/abstracts/sg248505.html?Open)
+- [Performance and Best Practices Guide for IBM Storage Virtualize 8.6](https://www.redbooks.ibm.com/redpieces/abstracts/sg248543.html)
+- [IBM FlashSystem and VMware Implementation and Best Practices Guide](https://www.redbooks.ibm.com/redpieces/abstracts/sg248549.html)
 
 
 ### Microcode Guidance
@@ -51,10 +46,6 @@ Find configuration limits and restrictions, release notes, and product documenta
 
 
 ## Implementation
-- [Implementation Guide for IBM Spectrum Virtualize Version 8.5](https://www.redbooks.ibm.com/redpieces/pdfs/sg248520.pdf)
-- [Host Configuration Best Practices](/ibm-flashsystem/flashsystem-host-configuration)
-- [Spectrum Virtualize Support Center Addresses](/storage/ibm/flashsystem/support-addresses)
-
 
 ### Implementation Checklist
 > This is not an official instruction manual from IBM.  Alway refer to the latest IBM docs if you are unsure about how to complete a step in the list below.{.is-info}
