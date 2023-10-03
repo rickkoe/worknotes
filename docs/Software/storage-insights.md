@@ -4,6 +4,7 @@
 - [Storage Insights Documentation](https://www.ibm.com/docs/en/storage-insights)  
 - [Quick Start Guide](https://www.ibm.com/docs/en/SSQRB8/pdf/IBM_Storage_Insights_Getting_Started_Guide.pdf)  
 ## Implementation
+[Use this link to secure a new Storage Insights Instance with Spectrum Control License]( https://www.ibm.com/it-infrastructure/storage/storage-insights/register-spectrum-control/)
 ### Data Collector Requirements
 #### Operating Systems  
 

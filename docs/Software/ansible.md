@@ -32,6 +32,8 @@ python3 -m pip install --user ansible
 
 ### Getting Started
 
+[Sample Ansible Setup](https://docs.ansible.com/ansible/latest/tips_tricks/sample_setup.html#sample-setup)
+
 ```
 mkdir /etc/ansible
 mkdir /etc/ansible/playbooks

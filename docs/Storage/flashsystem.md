@@ -14,7 +14,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 ### Implementation Guide
 *A great reference to use during initial implementation of a new FlashSystem*
 
-- [Implementation Guide for IBM Storage Virtualize Version 8.5](https://www.redbooks.ibm.com/abstracts/sg248520.html)
+- [Implementation Guide for IBM Storage Virtualize Version 8.6](https://www.redbooks.ibm.com/redpieces/abstracts/sg248542.html)
 
 
 ### Best Practices Guide
