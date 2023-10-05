@@ -2,6 +2,7 @@
 ## Documenation
 
 - [Documentation Site](https://www.ibm.com/docs/en/storage-scale/5.1.7)
+- [IBM Spectrum Scale 5.1.0: Problem Determination Guide](https://www.ibm.com/docs/it/STXKQY_5.1.0/com.ibm.spectrum.scale.v5r10.doc/pdf/scale_pdg.pdf?view=kc)
 
 ## Implementation
 ### Cheat Sheet
