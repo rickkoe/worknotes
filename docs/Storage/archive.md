@@ -53,13 +53,13 @@
 	
 1. Configuration  
 
-!!! alert
-    During the configuration, you will be prompted to choose a filesystem.  Choose **gpfs0** or whatever the main GPFS filesystem name is.
-    Make sure you say "n" to this question:  `Then do you want to perform the ADD_CTRL_NODE mode? [Y/n]:`
+    !!! alert
+        During the configuration, you will be prompted to choose a filesystem.  Choose **gpfs0** or whatever the main GPFS filesystem name is.
+        Make sure you say "n" to this question:  `Then do you want to perform the ADD_CTRL_NODE mode? [Y/n]:`  
 
 
-    cd /opt/ibm/ltfsee/bin
-    ./ltfsee_config -m CLUSTER
+        cd /opt/ibm/ltfsee/bin
+        ./ltfsee_config -m CLUSTER
 	
 1. Log into each node where there is a tape library zoned/configured and add it as a control node:
 
