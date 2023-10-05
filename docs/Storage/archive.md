@@ -6,9 +6,9 @@
 
 1. Run this command on both nodes to enable the required repository:  
 
-```
-subscription-manager repos --enable codeready-builder-for-rhel-8-ppc64le-rpms
-```
+        ```
+        subscription-manager repos --enable codeready-builder-for-rhel-8-ppc64le-rpms
+        ```
 
 1.  Install prereqs:  
 
