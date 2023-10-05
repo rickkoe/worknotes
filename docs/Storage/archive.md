@@ -10,8 +10,8 @@
 
 1. Install prereqs:  
 
-```
         dnf install attr boost-date-time boost-filesystem boost-program-options boost-serialization boost-thread boost-regex.ppc64le fuse fuse-libs  libxml2 libuuid libicu lsof nss-softokn-freebl openssl net-snmp  python3-pyxattr java
+
 1. Mount the iso
 
         mkdir /mnt/iso
@@ -52,7 +52,8 @@
 	            /usr/lpp/mmfs/bin/mmmount /dev/gpfs0 -a
 	
 1. Configuration
-!!!
+
+!!! alert
     Make sure you say "n" to this question:  `Then do you want to perform the ADD_CTRL_NODE mode? [Y/n]:``
 
         cd /opt/ibm/ltfsee/bin
@@ -62,11 +63,14 @@
 
         ltfsee_config -m ADD_CTRL_NODE -g
 
-	
-	Script to assign Tapes
-	POOL=icas02_pool
-	LIBRARY=icas02_ts3310
-	eeadm tape list --no-header -l $LIBRARY | grep unassigned | while read -a tape ; do eeadm tape assign ${tape[0]} -p $POOL -l $LIBRARY -f ; done
+## Script
+### Script to assign Tapes
+```
+POOL=icas02_pool
+LIBRARY=icas02_ts3310
+eeadm tape list --no-header -l $LIBRARY | grep unassigned | while read -a tape ; do eeadm tape assign ${tape[0]} -p $POOL -l $LIBRARY -f ; done
+```
+
 	
 	Removing Spectrum Archive
 	cd ~/LTFSEE/rpm.1330_53211/
