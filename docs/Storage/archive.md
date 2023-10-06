@@ -2,7 +2,7 @@
 
 ## Implementation
 
-### Implementation Steps
+### Installation Steps
 
 1. Run this command on both nodes to enable the required repository:  
 
@@ -67,6 +67,20 @@
 
         ltfsee_config -m ADD_CTRL_NODE -g
 
+1. Start the cluster
+
+        eeadm cluster start
+
+
+### Uninstall Steps
+1. CD to the rpm directory
+
+    	cd ~/LTFSEE/rpm.1330_53211/
+
+1. Uninstall the software
+
+	./ltfsee_install --clean
+
 ## Script
 ### Script to assign Tapes
 ```
@@ -76,80 +90,79 @@ eeadm tape list --no-header -l $LIBRARY | grep unassigned | while read -a tape ;
 ```
 
 	
-	Removing Spectrum Archive
-	cd ~/LTFSEE/rpm.1330_53211/
-	./ltfsee_install --clean
-	
-	Start the cluster
-	eeadm cluster start
-	
-	
-	
-	Create Export
-	
-	HSM Rule
-	https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=migration-automated-spectrum-scale-policies
-	
-	mmaddcallback MIGRATION2 --command /usr/lpp/mmfs/bin/mmstartpolicy --event lowDiskSpace,noDiskSpace --parms "%eventName %fsName --single-instance -B 10000"
-	
-	
-	define(
-	    user_exclude_list,
-	    (
-	        FALSE
-	        OR (PATH_NAME LIKE '/ibm/gpfs/%' AND NAME LIKE 'confidential.%')
-	        OR PATH_NAME LIKE '%/.SpaceMan/%'
-	        OR PATH_NAME LIKE '/ibm/gpfs/.ltfsee/%'
-	        OR ((CURRENT_TIMESTAMP - MODIFICATION_TIME) < INTERVAL '121' SECONDS)
-	        OR NLINK != 1
-	    )
-	)
-	
-	define(
-	    user_include_list,
-	    (
-	    FALSE
-	    )
-	)
-	
-	define(
-	    exclude_list,
-	    (NAME LIKE 'dsmerror.log')
-	)
-	
-	/* define is_premigrated uses Spectrum Scale inode attributes that mark a file 
-	   as a premigrated file. Use the define to include or exclude premigrated 
-	   files from the input file list */
-	define(
-	    is_premigrated, 
-	    (MISC_ATTRIBUTES LIKE '%M%' AND MISC_ATTRIBUTES NOT LIKE '%V%') 
-	) 
-	
-	/* define is_migrated uses Spectrum Scale inode attributes that mark a file 
-	   as a migrated file. Use the define to include or exclude migrated 
-	   files from the input file list */
-	define(
-	    is_migrated, 
-	    (MISC_ATTRIBUTES LIKE '%V%') 
-	) 
-	
-	RULE EXTERNAL POOL 'ltfs1'
-	EXEC '/opt/ibm/ltfsee/bin/eeadm' /*The full path to the eeadm command must be specified */
-	OPTS '-p ltfs-storage-pool1@library1,ltfs-storage-pool2@library2'
-	SIZE 10485760
-	
-	
-	RULE 'MigAndPremigToExt' MIGRATE FROM POOL 'system'
-	THRESHOLD(90,80)
-	WEIGHT( CURRENT_TIMESTAMP - ACCESS_TIME )
-	TO POOL 'ltfs1'
-	WHERE (
-	    FILE_SIZE > 5242880 
-	    AND NOT is_migrated
-	    AND NOT exclude_list
-	    AND (NOT user_exclude_list OR user_include_list)
-	)
-	
-	
+
+
+### Lifecycle Policy
+Create Export
+
+HSM Rule
+https://www.ibm.com/docs/en/spectrum-archive-ee/1.3.3?topic=migration-automated-spectrum-scale-policies
+
+```
+mmaddcallback MIGRATION2 --command /usr/lpp/mmfs/bin/mmstartpolicy --event lowDiskSpace,noDiskSpace --parms "%eventName %fsName --single-instance -B 10000"
+```
+
+
+Here's an example of the policy
+
+```
+define(
+    user_exclude_list,
+    (
+        FALSE
+        OR (PATH_NAME LIKE '/ibm/gpfs/%' AND NAME LIKE 'confidential.%')
+        OR PATH_NAME LIKE '%/.SpaceMan/%'
+        OR PATH_NAME LIKE '/ibm/gpfs/.ltfsee/%'
+        OR ((CURRENT_TIMESTAMP - MODIFICATION_TIME) < INTERVAL '121' SECONDS)
+        OR NLINK != 1
+    )
+)
+
+define(
+    user_include_list,
+    (
+    FALSE
+    )
+)
+
+define(
+    exclude_list,
+    (NAME LIKE 'dsmerror.log')
+)
+
+/* define is_premigrated uses Spectrum Scale inode attributes that mark a file 
+    as a premigrated file. Use the define to include or exclude premigrated 
+    files from the input file list */
+define(
+    is_premigrated, 
+    (MISC_ATTRIBUTES LIKE '%M%' AND MISC_ATTRIBUTES NOT LIKE '%V%') 
+) 
+
+/* define is_migrated uses Spectrum Scale inode attributes that mark a file 
+    as a migrated file. Use the define to include or exclude migrated 
+    files from the input file list */
+define(
+    is_migrated, 
+    (MISC_ATTRIBUTES LIKE '%V%') 
+) 
+
+RULE EXTERNAL POOL 'ltfs1'
+EXEC '/opt/ibm/ltfsee/bin/eeadm' /*The full path to the eeadm command must be specified */
+OPTS '-p ltfs-storage-pool1@library1,ltfs-storage-pool2@library2'
+SIZE 10485760
+
+
+RULE 'MigAndPremigToExt' MIGRATE FROM POOL 'system'
+THRESHOLD(90,80)
+WEIGHT( CURRENT_TIMESTAMP - ACCESS_TIME )
+TO POOL 'ltfs1'
+WHERE (
+    FILE_SIZE > 5242880 
+    AND NOT is_migrated
+    AND NOT exclude_list
+    AND (NOT user_exclude_list OR user_include_list)
+)
+```
+
 	
 	
