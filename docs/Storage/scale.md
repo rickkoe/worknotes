@@ -52,6 +52,4 @@
 ### Setup File Access Authentication with Active Directory
 1. 
 
-        '''
         mmuserauth service create  --type ad --data-access-method file --netbios-name specscale --user-name adUser --idmap-role master --servers myAdserver --idmap-range-size 1000000 --idmap-range 10000000-299999999 --unixmap-domains 'DOMAIN(5000-20000:win)'
-        '''
