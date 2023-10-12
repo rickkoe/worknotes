@@ -98,14 +98,17 @@ A *fabric port* is a Fibre Channel port. If you use more than four fabric ports 
 
 Careful zoning improves resilience and prevents lease expires due to port errors, low fabric buffer credits, shared adapter resources, or push-back from remote links. Table 1 displays a port allocation scheme.
 
-Table 1. Port allocation scheme
+Table 1. Port allocation scheme  
+
 | Adapter | Port | 4 ports | 8 ports | 12 ports |16 ports | SAN Fabric |
 | Adapter 1 Port 1 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | A |
 | Adapter 1 Port 2 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | B |
 | Adapter 1 Port 3 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | A |
 | Adapter 1 Port 4 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | B |
 | Adapter 2 Port 1 | - | Host and Storage | Host and Storage | Host and Storage | A |
-| Adapter 2 Port 2 | - | Host and Storage | Host and Storage | Host and Storage | B |
+| Adapter 2 Port 2 | - | Host and Storage | Host and Storage | Host and Storage | B |  
+
+
 | Adapter 2 Port 3 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	A
 | Adapter 2 Port 4 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	B
 | Adapter 3 Port 1 | -	-	Host and Storage	Host and Storage	A
