@@ -86,6 +86,55 @@ The following items are a summary of the most common steps that need to be compl
 - <input type="checkbox"/> Modify fibre channel port masking (if needed for replication)
 - <input type="checkbox"/> [Update System Software](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=updating-system-software)
 - <input type="checkbox"/> [Update Drive Firmware](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=software-updating-drive-firmware)
+
+
+### Port Planning
+#### Planning for more than four fabric ports per node canister
+Last Updated: 2023-06-08
+
+You can use more than four fabric ports per to improve peak load I/O performance, but careful planning is needed.
+
+A *fabric port* is a Fibre Channel port. If you use more than four fabric ports per node, you must either use the **localfcportmask** and **partnerfcportmask** commands or be careful with your fabric zoning configuration.
+
+Careful zoning improves resilience and prevents lease expires due to port errors, low fabric buffer credits, shared adapter resources, or push-back from remote links. Table 1 displays a port allocation scheme.
+
+Table 1. Port allocation scheme
+| Adapter | Port | 4 ports | 8 ports | 12 ports |16 ports | SAN Fabric |
+| Adapter 1 Port 1 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | A |
+| Adapter 1 Port 2 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | B |
+| Adapter 1 Port 3 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | A |
+| Adapter 1 Port 4 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | B |
+| Adapter 2 Port 1 | - | Host and Storage | Host and Storage | Host and Storage | A |
+| Adapter 2 Port 2 | - | Host and Storage | Host and Storage | Host and Storage | B |
+| Adapter 2 Port 3 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	A
+| Adapter 2 Port 4 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	B
+| Adapter 3 Port 1 | -	-	Host and Storage	Host and Storage	A
+| Adapter 3 Port 2 | -	-	Host and Storage	Host and Storage	B
+| Adapter 3 Port 3 | -	-	Intracluster	Intracluster	A
+| Adapter 3 Port 4 | -	-	Intracluster	Intracluster	B
+| Adapter 4 Port 1 | -	-	-	Host and Storage	A
+| Adapter 4 Port 2 | -	-	-	Host and Storage	B
+| Adapter 4 Port 3 | -	-	-	Replication or Host and Storage	A
+| Adapter 4 Port 4 | -	-	-	Replication or Host and Storage	B
+| localfcportmask	1100	11001100 or 00001100	110000001100	0000110000001100	-
+| remotefcportmask	1100	00000000 or 11000000	000011000000	1100000011000000	-
+Host refers to host objects defined in the system.
+Replication refers to nodes that are part of a different cluster.
+Storage refers to controller objects defined in the system if external storage is being used.
+Intracluster refers to nodes within the same cluster.
+The word "and" indicates that both types are used.
+The word "or" indicates that one of the options must be selected. If using replication, preference should be given to replication.
+If a receives more than 16 logins from another node, then it causes node error 860.
+
+You can ensure that no more than 16 logins are received by following these guidelines:
+Zone the SAN fabric to reduce the number of paths between the nodes.
+Apply a local Fibre Channel port mask (if the nodes are within the same system) or partner Fibre Channel port mask (if the nodes are in different systems) to reduce the number of ports that are being used for node-to-node communication.
+Provide a combination of the two (zoning and port masks).
+To avoid receiving node error 860 and to maximize performance on your system, follow these guidelines:
+For redundancy, use a minimum of two ports. If ports are being dedicated for different types of traffic, assign a minimum of two ports for each type of traffic.
+Within a system, up to 50% of the overall data that is transferred across the SAN is transmitted between the nodes. However, for read-intensive workloads, the figure is much less. Therefore, if ports are being dedicated for different types of traffic, assign between 1/4 and 1/2 of the overall ports for node-to-node communication within a system.
+For replication between systems, the connection between the systems is usually the bottleneck. Other than for redundancy, there is no point in having more SAN connections than there is bandwidth. For example, if two sites are connected with a 10 Gbps link, two 8 Gbps ports are sufficient. Systems usually are configured with two ports per node for replication traffic primarily for redundancy. For systems with larger numbers of nodes, it might be appropriate to have connections only from a subset of the nodes for replication to a remote system. The system automatically forwards replication traffic between local nodes so that all nodes can still participate in replication.
+
 ### Safguarded Copy Implementation
 #### What if the pools fills up?
 There is a system wide setting that is set by using the `chsystem` command that will dictate what happens to safeguarded snapshots and their source volumes when you run out of space in the pool.
