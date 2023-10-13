@@ -16,7 +16,7 @@ theme:
     - navigation.sections
     - navigation.indexes 
     # - header.autohide
-    - toc.integrate
+    # - toc.integrate
     - toc.follow
     - search.suggest
     - search.highlight
