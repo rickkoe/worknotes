@@ -1,10 +1,10 @@
 # Ansible
 ## Documentation and Resources
-- [Ansible Site](ansible.com)
-- [Ansible Documentation](docs.ansible.com)
-- [Ansible Galaxy](galaxy.ansible.com)
-- [Online YAML Tools](onlineyamltools.com/edit-yaml)
-- [Code Beautify](codebeautify.ort/yaml-editor-online)
+- [Ansible Site](https://ansible.com)
+- [Ansible Documentation](https://docs.ansible.com)
+- [Ansible Galaxy](https://galaxy.ansible.com)
+- [Online YAML Tools](https://onlineyamltools.com/edit-yaml)
+- [Code Beautify](https://codebeautify.ort/yaml-editor-online)
 
 ## Galaxy Collections I Care About
 ### IBM Storage
