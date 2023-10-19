@@ -12,7 +12,7 @@
 - [IBM Storage Virtualize on Github](https://github.com/ansible-collections/ibm.storage_virtualize)
 
 ### Brocade
-- [Brocade FOS FC Collection](https://galaxy.ansible.com/brocade/fos)
+- [Brocade FOS FC Collection](https://galaxy.ansible.com/ui/repo/published/brocade/fos)
 - [Brocade on Github](https://github.com/brocade/ansible)
 
 Ansible collections stored here: `/root/.ansible/collections/ansible_collections/ibm/storage_virtualize`
