@@ -49,6 +49,29 @@
         tar -xvf Scale_adv_5.1.7_ppc64le.tar
 
 
+### Enable SMB Protocol
+#### Install prerequisite packages 
+
+!!! info
+        Do this on EACH CES node!
+
+1. Install the gdb package
+
+        dnf install gdb
+
+1. Change to the smb_rpms directory
+
+        cd /usr/lpp/mmfs/5.1.7.0/smb_rpms/rhel8
+
+1. Install the RPMs
+
+        rpm -Uvh gpfs.smb-4.16.8_gpfs_7-1.el8.ppc64le.rpm
+
+1. Enable the SMB service
+
+        mmces service enable smb
+
+        
 ### Setup File Access Authentication with Active Directory
 1. 
 
