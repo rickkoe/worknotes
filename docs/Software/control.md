@@ -4,6 +4,7 @@
 !!! info
     Tip: The default installation_dir is /opt/IBM/TPC.  Custom directory we use is /SpectrumControl  
 To stop the servers on Linux or AIX operating systems, enter the following commands in the following order:  
+
 - Storage Resource Agent 
 
     /SRA_installation_dir/agent/bin/agent.sh stop  
@@ -36,6 +37,7 @@ To stop the servers on Linux or AIX operating systems, enter the following comma
     Note: The default installation_dir is /opt/IBM/TPC.  
 
 To start the servers on the Linux or AIX operating systems, enter the following commands in the following order:  
+
 - Data server  
 
     /installation_dir/scripts/startTPCData.sh  
@@ -59,4 +61,3 @@ To start the servers on the Linux or AIX operating systems, enter the following 
 - Storage Resource Agent  
 
     /installation_dir/agent/bin/agent.sh start 
-     
