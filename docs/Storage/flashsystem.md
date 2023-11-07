@@ -45,6 +45,15 @@ Find configuration limits and restrictions, release notes, and product documenta
 - [Vdbench Downloads and User Guide](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
 
 
+## Commands Cheat Sheet
+
+List current date and time
+
+```
+svqueryclock
+```
+
+
 ## Implementation
 
 ### Implementation Checklist
