@@ -47,11 +47,13 @@ Find configuration limits and restrictions, release notes, and product documenta
 
 ## Commands Cheat Sheet
 
-List current date and time
+- List current date and time
 
-```
-svqueryclock
-```
+        svqueryclock
+
+- Recover offline volumes (i/o group went offline and lose cache)
+
+        recovervdiskbysystem
 
 
 ## Implementation
