@@ -9,6 +9,10 @@
 
 - Ansible Toolkit directory: `/usr/lpp/mmfs/5.1.x.0/ansible-toolkit`
 
+- Add commands to environment path
+
+                echo 'export PATH=$PATH:/usr/lpp/mmfs/bin' > /etc/profile.d/mm.sh
+
 
 ### Linux Stretch Cluster Installation
 
