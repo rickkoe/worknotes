@@ -221,6 +221,50 @@ The following notification was sent out relating to additional IP address change
 ![Filter](assets/images/config-xml-3.png)
 1. The file will be downloaded by your browser (typically to your Download folder).
 
+### Erase All Drives
+1. Delete all volumes and pools
+1. Ensure all drives are in _candidate_ use state
+
+        lsdrive
+
+1. Erase all drives using this script
+
+        lsdrive -nohdr | while read -a line ; do chdrive -task erase ${line[0]} ; done
+
+1. Verify erasure completion
+
+        lsdriveprogress
+
+### Reset System to Factory Defaults
+1. Delete all hosts, volumes, and pools
+1. As superuser, ssh into the service IP node 1 and issue the following:
+
+        sainfo lsservicenodes
+        satask startservice -force <node2_panel_name>
+        satask startservice -force <node1_panel_name>
+
+1. Log back into node 1 service IP and issue the following  (ensure both nodes are in service):
+
+
+        sainfo lsservicenodes 
+        satask leavecluster -force <node2_panel_name>
+        satask leavecluster -force <node1_panel_name>
+
+1. Log back into node 1 service IP and issue the following (ensure ‘cluster_id’, ‘cluster_name’, ‘node_name’ are blank):
+
+        sainfo lsservicenodes 
+        satask chvpd -resetclusterid <node2_panel_name>
+        satask chvpd -resetclusterid <node1_panel_name>
+
+1. Reboot the nodes:
+
+        satask stopnode -reboot <node2_panel_name>
+        satask stopnode -reboot <node1_panel_name>
+
+1. Log back into node 1 service IP and issue the following (both nodes should show 'node_status' as _Candidate_ ):
+
+        sainfo lsservicenodes 
+
 
 ## Scripts
 ### Determine Remote Copy Status
