@@ -189,6 +189,11 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
         portcfg ipif ge2 create 10.1.1.10/24 mtu 1500
         portcfg ipif ge3 create 10.1.1.11/24 mtu 1500
         ```
+1. If needed, set PMTU for auto MTU size:
+
+        portcfg ipif ge2.dp0 modify 10.1.1.10/24 mtu auto
+        portcfg ipif ge3.dp0 modify 10.1.1.11/24 mtu auto
+
 1. Show the IP interfaces
         ```
         portshow ipif

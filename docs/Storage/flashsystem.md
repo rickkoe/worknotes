@@ -245,10 +245,14 @@ The following notification was sent out relating to additional IP address change
 
 1. Log back into node 1 service IP and issue the following  (ensure both nodes are in service):
 
-
         sainfo lsservicenodes 
         satask leavecluster -force <node2_panel_name>
         satask leavecluster -force <node1_panel_name>
+
+!!! note 
+
+        The previous steps will reset the superuser password back to factory defaults.  Use *passw0rd* as the password going forward
+
 
 1. Log back into node 1 service IP and issue the following (ensure ‘cluster_id’, ‘cluster_name’, ‘node_name’ are blank):
 
