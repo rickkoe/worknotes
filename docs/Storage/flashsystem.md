@@ -45,7 +45,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 - [Vdbench Downloads and User Guide](https://www.oracle.com/downloads/server-storage/vdbench-downloads.html)
 
 
-## Commands Cheat Sheet
+## Cheat Sheet
 
 - List current date and time
 
@@ -55,6 +55,10 @@ Find configuration limits and restrictions, release notes, and product documenta
 
         recovervdiskbysystem
 
+- IP Replication requires the following firewall ports opened:
+
+    - Cluster IPs: 3260
+    - Data IPs: 3265
 
 ## Implementation
 
@@ -168,6 +172,7 @@ There are two options for snapshot behavior if the pool fills up.
     chsystem -snapshotpreserveparent yes
     ```
 ![Snapshot preserve parent help](assets/images/snapshot-preserve-parent.png)
+
 ### Spectrum Virtualize Remote Support IP Addresses
 
 
