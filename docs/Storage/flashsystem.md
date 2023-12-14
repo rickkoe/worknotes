@@ -60,6 +60,12 @@ Find configuration limits and restrictions, release notes, and product documenta
     - Cluster IPs: 3260
     - Data IPs: 3265
 
+- Manually resuming code activation
+
+                lsupdate
+                applysoftware -continue
+
+
 ## Implementation
 
 ### Implementation Checklist
