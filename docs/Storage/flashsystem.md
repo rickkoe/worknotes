@@ -65,6 +65,10 @@ Find configuration limits and restrictions, release notes, and product documenta
                 lsupdate
                 applysoftware -continue
 
+- Restart Web Service
+
+                satask restartservice -service tomcat
+
 
 ## Implementation
 
