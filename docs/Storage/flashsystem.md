@@ -55,19 +55,20 @@ Find configuration limits and restrictions, release notes, and product documenta
 
         recovervdiskbysystem
 
+- Manually resuming code activation
+
+        lsupdate
+        applysoftware -continue
+
+- Restart Web Service
+
+        satask restartservice -service tomcat
+        
 - IP Replication requires the following firewall ports opened:
 
     - Cluster IPs: 3260
     - Data IPs: 3265
 
-- Manually resuming code activation
-
-                lsupdate
-                applysoftware -continue
-
-- Restart Web Service
-
-                satask restartservice -service tomcat
 
 
 ## Implementation
