@@ -1,6 +1,8 @@
 # IBM GKLM
 
 ## Documentation Links
+- [SKLM Documentation](https://www.ibm.com/docs/en/sgklm)
+- [DS8000 Encryption Redpaper](https://www.redbooks.ibm.com/redpapers/pdfs/redp4500.pdf)
 
 ## Procedures
 ### Migrating Keys Using CLI
