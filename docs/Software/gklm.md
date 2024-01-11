@@ -5,14 +5,21 @@
 ## Procedures
 ### Migrating Keys Using CLI
 On SKLM server2, do the following:
+
 1. Login as LOCAL ADMINISTRATOR
 2. Change directories:
+    
     cd \Program Files\IBM\WebSphere\AppServer\bin>
+
 3. Log into the WebSphere CLI
-	wsadmin.bat -username SKLMAdmin -password ESI@2019bpic -lang jython
+	
+    wsadmin.bat -username SKLMAdmin -password ESI@2019bpic -lang jython
+
 4. Create an SSL certificate, say sslCert, on server2 if not previously done:
-	print AdminTask.tklmCertCreate ('[-type selfsigned -alias sslCert -cn SSLCert -keyStoreName defaultKeyStore -usage SSLSERVER -validity 9000]')
+	
+    print AdminTask.tklmCertCreate ('[-type selfsigned -alias sslCert -cn SSLCert -keyStoreName defaultKeyStore -usage SSLSERVER -validity 9000]')
 	Where sslCert is an example for an alias label.
+
 5. List the certificate to verify it is created or if it is already there.
 	print AdminTask.tklmCertList()
 		Example Output clipped as we care only about the following 3 parameters:
