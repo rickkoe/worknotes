@@ -81,7 +81,7 @@
 
 	./ltfsee_install --clean
 
-## Script
+## Scripts
 ### Script to assign Tapes
 ```
 POOL=icas02_pool
