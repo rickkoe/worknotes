@@ -237,6 +237,9 @@ The following notification was sent out relating to additional IP address change
 ![Filter](assets/images/config-xml-3.png)
 1. The file will be downloaded by your browser (typically to your Download folder).
 
+## Wiping a System to Return/Resell
+
+
 ### Erase All Drives
 1. Delete all volumes and pools
 1. Ensure all drives are in _candidate_ use state
@@ -251,7 +254,7 @@ The following notification was sent out relating to additional IP address change
 
         lsdriveprogress
 
-## Wiping a System to Return/Resell
+
 
 ### Reset System to Factory Defaults
 1. Delete all hosts, volumes, and pools
