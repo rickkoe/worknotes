@@ -225,7 +225,7 @@ The following notification was sent out relating to additional IP address change
   
  
 
-## Procedures
+## Support Procedures
 
 ### Export Config XML File
 1. Log into the GUI
@@ -250,6 +250,8 @@ The following notification was sent out relating to additional IP address change
 1. Verify erasure completion
 
         lsdriveprogress
+
+## Wiping a System to Return/Resell
 
 ### Reset System to Factory Defaults
 1. Delete all hosts, volumes, and pools
