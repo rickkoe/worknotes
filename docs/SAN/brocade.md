@@ -8,7 +8,9 @@
 - [Brocade FOS Command Reference Manual, 9.0.x](https://docs.broadcom.com/doc/FOS-90x-Command-RM)
 
 ### Microcode Guidance
+- [Brocade Target Path Selection Guide](https://docs.broadcom.com/doc/Brocade-SW-Support-RM)
 - [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
+
 
 ## Implementation
 ### Implementation Checklist
