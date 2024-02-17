@@ -13,6 +13,12 @@
 
 
 ## Implementation
+
+### Load Firmware From USB
+usbstorage -e
+usbstorage -l
+firmwaredownload -U v9.2.1_EXT
+
 ### Implementation Checklist
 
 These are the typical items that should be reviewed and/or configured when setting up a new Brocade SAN switch/director. While many of these settings can be set in WebTools, the CLI commands are listed here for a simlper checklist.
@@ -69,6 +75,7 @@ ethif --show eth0
 - <input type="checkbox"/> Configure timezone
 
 ```plaintext
+tstimezone America/New_York
 tstimezone America/Chicago
 ```
 

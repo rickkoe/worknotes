@@ -70,6 +70,9 @@ Find configuration limits and restrictions, release notes, and product documenta
     - Data IPs: 3265
 
 
+lsvdisk -nohdr | grep -v scsi | while read -a line ; do new_name=${line[1]//msc520/bscbak};new_name=${new_name%_01} ; chvdisk -name $new_name ${line[1]}; done
+
+
 
 ## Implementation
 
