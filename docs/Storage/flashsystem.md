@@ -69,9 +69,13 @@ Find configuration limits and restrictions, release notes, and product documenta
     - Cluster IPs: 3260
     - Data IPs: 3265
 
+- Script to Rename Volumes
 
-lsvdisk -nohdr | grep -v scsi | while read -a line ; do new_name=${line[1]//msc520/bscbak};new_name=${new_name%_01} ; chvdisk -name $new_name ${line[1]}; done
+        lsvdisk -nohdr | grep -v scsi | while read -a line ; do new_name=${line[1]//msc520/bscbak};new_name=${new_name%_01} ; chvdisk -name $new_name ${line[1]}; done
 
+- Script to validate cabling
+
+        lsportfc -nohdr | while read -a port; do printf "%s,port%s," "${port[6]}" "${port[2]}"; lsportfc "${port[0]}" | grep fabric_WWN ; done
 
 
 ## Implementation
