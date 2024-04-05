@@ -50,11 +50,41 @@ Reloading a module disrupts traffic through the module.
 ```
 reload module 2
 ```
-
-
 ### Microcode Guidance
 
 - [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
+### FCIP Configuration
+```
+config t
+feature fcip
+```
+#### Configure the IP Storage Interfaces
+```
+interface ipStorage 1/1-6
+10g-speed-mode
+interface ipStorage 1/1
+ip address 10.1.1.100 255.255.255.0
+no shut
+interface ipStorage 1/2
+ip address 10.1.1.101 255.255.255.0
+no shut
+```
+
+#### Configure Static Route
+```
+ip route 10.2.1.0 255.255.255.0 10.1.1.1
+```
+Display the routing table
+```
+show ips ip route interface ipStorage 1/1
+```
+#### Create FCIP Profile and assign interfaces
+```
+fcip profile 10
+ip address 10.22.9.20
+
+```
+
 
 ## Implementation Checklist
 
