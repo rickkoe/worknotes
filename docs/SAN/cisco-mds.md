@@ -54,11 +54,18 @@ reload module 2
 
 - [Download Microcode from IBM Fix Central](https://www.ibm.com/support/fixcentral)
 ### FCIP Configuration
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/sw/8_x/config/ip_services/ipsvc/cfcip.html#74650
+https://thinksystem.lenovofiles.com/storage/help/index.jsp?topic=%2FMCC_Fabric-attached_MetroCluster_Installation_and_Configuration_Guide%2F5A8EEA1A-F3FA-4570-902C-2BF420654A60_.html
+
+1. Enable the FCIP Feature
+
 ```
 config t
 feature fcip
 ```
-#### Configure the IP Storage Interfaces
+
+1. Configure the IPStorage interface.
+
 ```
 interface ipStorage 1/1-6
 10g-speed-mode
@@ -70,7 +77,8 @@ ip address 10.1.1.101 255.255.255.0
 no shut
 ```
 
-#### Configure Static Route
+1. Configure static routes
+
 ```
 ip route 10.2.1.0 255.255.255.0 10.1.1.1
 ```
@@ -78,12 +86,28 @@ Display the routing table
 ```
 show ips ip route interface ipStorage 1/1
 ```
-#### Create FCIP Profile and assign interfaces
+
+1. Create an FCIP profile and then assign the IPStorage interface’s IP address to the profile.
+
 ```
 fcip profile 10
 ip address 10.22.9.20
+sh fcip profile
 
 ```
+
+1. Create an FCIP interface and then assign the profile to the interface.
+
+```
+interface fcip 51
+use-profile 10
+peer-info ipaddr 10.1.1.1
+no shut
+```
+1. Configure the peer IP address for the FCIP interface.
+1. Enable the interface.
+
+
 
 
 ## Implementation Checklist
