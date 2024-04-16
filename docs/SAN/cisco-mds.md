@@ -1,5 +1,6 @@
 # Cisco MDS SAN
 ##  Implementation
+- [Cisco Configuration Guides](https://www.cisco.com/c/en/us/support/storage-networking/mds-9000-nx-os-san-os-software/products-installation-and-configuration-guides-list.html)
 ### Procedures
 - [Procedure to collect show tech-support logs](/cisco-mds/mds-tech-support)
 ### Implementation Checklist
