@@ -18,7 +18,6 @@
 usbstorage -e
 usbstorage -l
 firmwaredownload -U v9.2.1_EXT
-
 ### Implementation Checklist
 
 These are the typical items that should be reviewed and/or configured when setting up a new Brocade SAN switch/director. While many of these settings can be set in WebTools, the CLI commands are listed here for a simlper checklist.
@@ -170,16 +169,54 @@ mapsConfig --emailcfg -address rick.k@evolvingsol.com
 mapsconfig --show
 mapsconfig --testmail -subject "this is a test" -message "test email body"
 ```
-## FCIP Configuration
-### Resources
+### Configuring Security
+This command will show security setup.
+```
+seccryptocfg --show
+```
+```
+br6510-fabA-1:FID128:admin> seccryptocfg --show
+SSH Crypto:
+SSH Cipher               : aes128-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+SSH Kex                  : diffie-hellman-group14-sha1,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521
+SSH MAC                  : hmac-sha2-256,hmac-sha2-512
+TLS Ciphers:
+HTTPS                    : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+RADIUS                   : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+LDAP                     : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+SYSLOG                   : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+TLS Protocol:
+HTTPS                    : TLSv1.2
+RADIUS                   : TLSv1.2
+LDAP                     : TLSv1.2
+SYSLOG                   : TLSv1.2
+X509v3:
+Validation               : Strict
+```
+
+To list security templates that are available:
+```
+seccryptocfg --lstemplates
+```
+To list the contents of a particular template:
+```
+seccryptocfg --show template_file
+```
+To apply the configurations in a template file:
+```
+seccryptocfg --apply template_file
+```
+
+### FCIP Configuration
+#### Resources
 - [Brocade® Fabric OS® Extension User Guide](https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-extension/9-2-x.html)
-### FCIP Configuration Steps
+#### FCIP Configuration Steps
 
 !!! note
 
     The steps shown below are the steps followed in a real world implementation of Brocade 7810s with two 10G links. 
 
-#### Configure GE Interfaces
+##### Configure GE Interfaces
 1. Show the GE Interfaces and make note of speed and WAN or LAN indication.  A flag of **L** means it is set for LAN (don't want this for FCIP).  No **L** indicates it is set for WAN (this is correct).  
         ```
         portcfgge --show
@@ -207,7 +244,7 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
         ```
         portshow ipif
         ```
-#### Configure FCIP Tunnels
+##### Configure FCIP Tunnels
 1. Create FCIP tunnel
         ```
         portcfg fciptunnel 12 create
@@ -216,7 +253,7 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
         ```
         portcfg fciptunnel 12 modify -c deflate
         ```
-#### Configure FCIP Circuits
+##### Configure FCIP Circuits
 1. Create circuits (Do on both sides)   
         ```
         portcfg fcipcircuit 12 create 0
@@ -232,7 +269,7 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
         portcfg fcipcircuit 12 modify 0 -b 615000 -B 1230000
         portcfg fcipcircuit 12 modify 1 -b 615000 -B 1230000
         ```
-#### Configure IPsec Encryption
+##### Configure IPsec Encryption
 1. Create an IPsec Policy
         ```
         portcfg ipsec-policy MyPolicyName create --preshared-key Li6a28@yfH@sgT28PNUj
@@ -249,7 +286,7 @@ mapsconfig --testmail -subject "this is a test" -message "test email body"
         ```
         portshow ipsec-policy --ike
         ```
-#### Validation Commands
+##### Validation Commands
 - Show the IP Interfaces
         ```
         portshow ipif
