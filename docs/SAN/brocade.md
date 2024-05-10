@@ -170,6 +170,7 @@ mapsconfig --show
 mapsconfig --testmail -subject "this is a test" -message "test email body"
 ```
 ### Configuring Security
+- [Brocade Security Templates](https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-administration/9-2-x/v26755091/v26754426.html)
 This command will show security setup.
 ```
 seccryptocfg --show
