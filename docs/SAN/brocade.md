@@ -382,3 +382,11 @@ Go to this URL and follow the steps to download and install Brocade SAN Health D
 ![Start The Audit](assets/images/san-health-5.png)
 1. It may take up to several hours for the report to be generated.  When it is ready for download, you will receive notification by email.  You will be instructed to download the report from [https://support.broadcom.com](https://support.broadcom.com). Your consultant will also receive a copy of the report if you entered their email in the Optional Additional Recipients field.
 
+### Generate CSR
+
+```
+seccertmgmt generate -csr https  -type rsa -keysize 2048 -hash sha256 -years 1 -f
+```
+```
+seccertmgmt show -csr https -hexdump
+```
