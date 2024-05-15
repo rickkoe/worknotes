@@ -1,8 +1,8 @@
 # Network Notes
 
-## Subnet Mask Cheat Sheet
+## Subnet Cheat Sheet
 
-||Addresses|Hosts|Netmask|Amount_of_a_Class_C|
+|CIDR|Addresses|Hosts|Netmask|Amount of a Class C|
 |---|---|---|---|---|
 |/30|4|2|255.255.255.252|1/64|
 |/29|8|6|255.255.255.248|1/32|
