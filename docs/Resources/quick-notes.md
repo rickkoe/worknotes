@@ -6,8 +6,8 @@
 
 ## Subnet Mask Cheat Sheet
 
-|Addresses|Hosts|Netmask|Amount_of_a_Class_C|
-|---|---|---|---|
+||Addresses|Hosts|Netmask|Amount_of_a_Class_C|
+|---|---|---|---|---|
 |/30|4|2|255.255.255.252|1/64|
 |/29|8|6|255.255.255.248|1/32|
 |/28|16|14|255.255.255.240|1/16|
