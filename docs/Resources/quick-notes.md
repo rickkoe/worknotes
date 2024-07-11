@@ -4,4 +4,11 @@
 [https://www.ibm.com/support/pages/prerequisites-and-maintenance-ibm-db2-analytics-accelerator-zos-v7](https://www.ibm.com/support/pages/prerequisites-and-maintenance-ibm-db2-analytics-accelerator-zos-v7)
 
 
+wrkmlbsts
+
+
+
+WRKTAPCTG
+
+
 

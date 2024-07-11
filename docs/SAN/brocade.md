@@ -14,6 +14,15 @@
 
 ## Implementation
 
+### Health Check
+```
+switchshow
+```
+```
+psshow
+```
+
+
 ### Load Firmware From USB
 usbstorage -e
 usbstorage -l
