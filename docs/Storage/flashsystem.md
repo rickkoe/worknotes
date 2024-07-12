@@ -120,6 +120,23 @@ The following items are a summary of the most common steps that need to be compl
 - <input type="checkbox"/> [Update System Software](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=updating-system-software)
 - <input type="checkbox"/> [Update Drive Firmware](https://www.ibm.com/docs/en/flashsystem-7x00/8.4.x?topic=software-updating-drive-firmware)
 
+### Policy-Based Replication
+First, here’s a more detail on the steps required to configure PBR:  https://www.ibm.com/docs/en/flashsystem-5x00/8.6.x?topic=5200-getting-started-policy-based-replication
+ 
+1. **Create a Partnership**
+The partnership definition tells the system what other system(s) it is allowed to communicate with for replication.  It is similar to pprcpath on DS8k, but it really has nothing to do with paths.  Paths are created strictly by what is zoned between the two systems.  It’s just defining the partner system that is eligible to establish replication with and is defining the type (IP or Fibre Channel), speed, type of replication (legacy or policy based) and other variables….  When you create the partnership, the paths are auto created by whatever ports are zoned to each other on those two systems.
+1. **Create a provisioning policy on each FlashSystem** *(optional)*
+Let’s say you want all volumes to be created as thin-provisioned.  You can create a policy for thin-provisioning and apply it to the pool on each FlashSystem.  Then when replication creates volumes on the DR system, they will be thin provisioned.  I believe you will want thick volumes, so you don’t need to do this step.
+1. **Link Pools**
+Once the partnership is established, the next step is to link pools between those two systems.  This probably seems redundant for your implementation because each of your FS5200s only has a single pool; however, some larger systems can and do have multiple pools, or some companies create child pools for multitenancy, and you can link the child pools instead of linking the entire pool.  Creating a chile pool is not required, and I DO NOT recommend it for your environment.  It’s needless complexity that would not provide value.
+1. **Create a Replication Policy**
+This is simply a policy that dictates what partner to replicate to and what your desired RPO is.  FlashSystems can have multiple partners, so this policy tell the volume group which one of those partners to use.  If you only have one partner, you still have to create a policy defining that partner as the replication target.
+1. **Create the Volume Group and Assign Replication Policy**
+This is where the magic happens!  You create the volume group on the system that you want be the source of the replication.  Then, add the volumes to be replicated into that group.  The volumes should be ones that you want to have consistency with each other (think Global Mirror session).  Then, you simply apply the replication policy to the volume group and replication starts automatically.  It takes care of creating the volumes on the target system, creating relationships, creating journal relationships, etc. 
+ 
+That’s it.  Once you have done these 5 steps, only have to do step 5 for subsequent replication.  Steps 1-4 are on-time setup only.
+ 
+The process of reversing replication is simple, but maybe not intuitive.  You correctly found Enable Access on the target system with pauses replication and makes the disk available on the target system (this is basically failoverpprc). The direction of replication when you restart it is simply based on which system you are logged into when you start replication after doing the enable access.  This is similar to how the failbackpprc command works on DS8k.  If you log into the target system and start replication from there, replication will be running in the reverse direction from the original (target --> source).  If you log into the source system and start replication, it will resume from the original source --> target direction.
 
 ### Port Planning
 #### Planning for more than four fabric ports per node canister
