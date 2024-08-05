@@ -9,7 +9,7 @@ Find configuration limits and restrictions, release notes, and product documenta
 - [Support Information for FlashSystem 7300](https://www.ibm.com/support/pages/support-information-flashsystem-7300)
 - [Support Information for FlashSystem 7200](https://www.ibm.com/support/pages/support-information-flashsystem-7200)
 - [Support Information for FlashSystem 5000 and 5200](https://www.ibm.com/support/pages/node/6408990)
-
+- [Support Center IPs](https://www.ibm.com/support/pages/node/6556434)
 
 ### Implementation Guide
 *A great reference to use during initial implementation of a new FlashSystem*
