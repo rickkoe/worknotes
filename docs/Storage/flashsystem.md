@@ -141,7 +141,7 @@ The process of reversing replication is simple, but maybe not intuitive.  You co
 ### Port Planning
 #### Port Allocation Table  
 
-[table from fs7300 docs](https://www.ibm.com/docs/en/flashsystem-7x00/8.7.x?topic=pc-planning-more-than-four-fabric-ports-per-node-canister)
+[Table copied from fs7300 docs](https://www.ibm.com/docs/en/flashsystem-7x00/8.7.x?topic=pc-planning-more-than-four-fabric-ports-per-node-canister)
 
 | Adapter | Port | 4 ports | 8 ports | 12 ports |16 ports | SAN Fabric |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
