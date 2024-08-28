@@ -168,8 +168,10 @@ Table 1. Port allocation scheme
 | Adapter 4 | Port 2 | - | - | - | Host and Storage | B |
 | Adapter 4 | Port 3 | - | - | - | Replication or Host and Storage | A |
 | Adapter 4 | Port 4 | - | - | - | Replication or Host and Storage | B |
-| localfcportmask 	1100	11001100 or 00001100	110000001100	0000110000001100	-
-| remotefcportmask	1100	00000000 or 11000000	000011000000	1100000011000000	-
+| localfcportmask | 1100 | 11001100 or 00001100 | 110000001100 | 0000110000001100 | - |
+| remotefcportmask | 1100 | 00000000 or 11000000 | 000011000000 | 1100000011000000 | - |
+
+
 Host refers to host objects defined in the system.
 Replication refers to nodes that are part of a different cluster.
 Storage refers to controller objects defined in the system if external storage is being used.
