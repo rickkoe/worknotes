@@ -139,16 +139,9 @@ That’s it.  Once you have done these 5 steps, only have to do step 5 for subse
 The process of reversing replication is simple, but maybe not intuitive.  You correctly found Enable Access on the target system with pauses replication and makes the disk available on the target system (this is basically failoverpprc). The direction of replication when you restart it is simply based on which system you are logged into when you start replication after doing the enable access.  This is similar to how the failbackpprc command works on DS8k.  If you log into the target system and start replication from there, replication will be running in the reverse direction from the original (target --> source).  If you log into the source system and start replication, it will resume from the original source --> target direction.
 
 ### Port Planning
-#### Planning for more than four fabric ports per node canister
-Last Updated: 2023-06-08
+#### Port Allocation Table  
 
-You can use more than four fabric ports per to improve peak load I/O performance, but careful planning is needed.
-
-A *fabric port* is a Fibre Channel port. If you use more than four fabric ports per node, you must either use the **localfcportmask** and **partnerfcportmask** commands or be careful with your fabric zoning configuration.
-
-Careful zoning improves resilience and prevents lease expires due to port errors, low fabric buffer credits, shared adapter resources, or push-back from remote links. Table 1 displays a port allocation scheme.
-
-Table 1. Port allocation scheme  
+[table from fs7300 docs](https://www.ibm.com/docs/en/flashsystem-7x00/8.7.x?topic=pc-planning-more-than-four-fabric-ports-per-node-canister)
 
 | Adapter | Port | 4 ports | 8 ports | 12 ports |16 ports | SAN Fabric |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
