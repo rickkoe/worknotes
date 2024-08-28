@@ -152,23 +152,23 @@ Table 1. Port allocation scheme
 
 | Adapter | Port | 4 ports | 8 ports | 12 ports |16 ports | SAN Fabric |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| Adapter 1 Port 1 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | A |
-| Adapter 1 Port 2 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | B |
-| Adapter 1 Port 3 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | A |
-| Adapter 1 Port 4 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | B |
-| Adapter 2 Port 1 | - | Host and Storage | Host and Storage | Host and Storage | A |
-| Adapter 2 Port 2 | - | Host and Storage | Host and Storage | Host and Storage | B |  
-| Adapter 2 Port 3 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	A
-| Adapter 2 Port 4 | -	Intracluster or Replication	Replication or Host and Storage	Replication or Host and Storage	B
-| Adapter 3 Port 1 | -	-	Host and Storage	Host and Storage	A
-| Adapter 3 Port 2 | -	-	Host and Storage	Host and Storage	B
-| Adapter 3 Port 3 | -	-	Intracluster	Intracluster	A
-| Adapter 3 Port 4 | -	-	Intracluster	Intracluster	B
-| Adapter 4 Port 1 | -	-	-	Host and Storage	A
-| Adapter 4 Port 2 | -	-	-	Host and Storage	B
-| Adapter 4 Port 3 | -	-	-	Replication or Host and Storage	A
-| Adapter 4 Port 4 | -	-	-	Replication or Host and Storage	B
-| localfcportmask	1100	11001100 or 00001100	110000001100	0000110000001100	-
+| Adapter 1 | Port 1 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | A |
+| Adapter 1 | Port 2 | Host and Storage	| Host and Storage | Host and Storage | Host and Storage | B |
+| Adapter 1 | Port 3 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | A |
+| Adapter 1 | Port 4 | Intracluster and Replication | Intracluster | Intracluster | Intracluster | B |
+| Adapter 2 | Port 1 | - | Host and Storage | Host and Storage | Host and Storage | A |
+| Adapter 2 | Port 2 | - | Host and Storage | Host and Storage | Host and Storage | B |  
+| Adapter 2 | Port 3 | - | Intracluster or Replication | Replication or Host and Storage | Replication or Host and Storage | A |
+| Adapter 2 | Port 4 | - | Intracluster or Replication | Replication or Host and Storage | Replication or Host and Storage | B |
+| Adapter 3 | Port 1 | - | - | Host and Storage | Host and Storage | A |
+| Adapter 3 | Port 2 | - | - | Host and Storage | Host and Storage | B |
+| Adapter 3 | Port 3 | - | - | Intracluster | Intracluster | A |
+| Adapter 3 | Port 4 | - | - | Intracluster | Intracluster | B |
+| Adapter 4 | Port 1 | - | - | - | Host and Storage | A |
+| Adapter 4 | Port 2 | - | - | - | Host and Storage | B |
+| Adapter 4 | Port 3 | - | - | - | Replication or Host and Storage | A |
+| Adapter 4 | Port 4 | - | - | - | Replication or Host and Storage | B |
+| localfcportmask 	1100	11001100 or 00001100	110000001100	0000110000001100	-
 | remotefcportmask	1100	00000000 or 11000000	000011000000	1100000011000000	-
 Host refers to host objects defined in the system.
 Replication refers to nodes that are part of a different cluster.
