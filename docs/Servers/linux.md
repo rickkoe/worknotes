@@ -1,6 +1,17 @@
 # Linux
 ## RedHat Enterprise Server
 ### Procedures
+
+#### Updating RHEL Minor Version
+
+1. Set the release version
+
+        subscription-manager release --set=8.7
+
+1. Update
+
+        dnf update -y --silent
+
 #### Changing The Default Kernel
 
 Simple way common to RHEL8 and RHEL9
