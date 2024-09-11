@@ -10,7 +10,7 @@
 
 1. Update
 
-        dnf update -y --silent
+        dnf update
 
 #### Changing The Default Kernel
 
