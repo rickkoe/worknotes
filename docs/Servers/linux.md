@@ -59,3 +59,7 @@ Simple way common to RHEL8 and RHEL9
 
         grubby --default-kernel
         # /boot/vmlinuz-5.14.0-70.13.1.el9_0.x86_64
+
+#### Downgrade kernel-devel to match system kernel
+
+        uname -r

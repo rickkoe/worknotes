@@ -1,5 +1,6 @@
-# IBMi Migration Cleanup Steps
-## Remove failed and non-reporting resources
+# IBMi
+## IBMi Migration Cleanup Steps
+### Remove failed and non-reporting resources
 - Activate partition in B/manual
 - Option 3  for DST main menu
 - Log in
@@ -9,7 +10,7 @@
 - Delete all failed and non-reporting resources with a 4 on each line (enter)
 
 *This should remove all logical names for the internal disks so they are not part of the configuration and prevent errors*
-## Call multipathresetter
+### Call multipathresetter
 From DST main menu:
 - Option 7 Start a service tool
 - Option 1 Display/Alter/Dump
@@ -22,7 +23,7 @@ From DST main menu:
 
 *Results will show and success at the end*
 
-## Check paths and number of Units
+### Check paths and number of Units
 From DST main menu:
 - Option 4 work with disk units
 - Option 1 work with disk configuration
@@ -31,7 +32,7 @@ From DST main menu:
 
 *Each unit should have required number of active and passive path (typically 2/2 or 4/4).  IBMi supports a maximum of 8 paths.  Do not zone more than 8 paths.*
 
-## Restricted IPL
+### Restricted IPL
 From DST main menu:
 - Option 1 Perform an IPL (enter) went to a screen showing C6004065)
 - If Prompted due to non-configured disks that are known choose Option 1 to keep configuration
