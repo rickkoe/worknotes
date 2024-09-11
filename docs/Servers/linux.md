@@ -12,6 +12,15 @@
 
         dnf update
 
+1. Reboot to activate new kernel
+
+        reboot
+
+1. Verify
+
+        uname -r
+        cat /etc/redhat-release
+
 #### Changing The Default Kernel
 
 Simple way common to RHEL8 and RHEL9
