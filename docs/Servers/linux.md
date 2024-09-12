@@ -4,10 +4,10 @@
 #### List WWPNs
 
         for host in /sys/class/fc_host/host*; do
-                echo "WWPN for $host:"
+                echo "WWPN and state for $host:"
                 cat "$host/port_name"
-                echo "Port state for $host:"
                 cat "$host/port_state"
+                echo
         done
 
 ### Procedures
