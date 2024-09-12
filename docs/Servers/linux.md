@@ -1,5 +1,13 @@
 # Linux
 ## RedHat Enterprise Server
+### Handy Scripts and Commands
+#### List WWPNs
+
+        for host in /sys/class/fc_host/host*; do
+        echo "WWPN for $host:"
+        cat "$host/port_name"
+        done
+
 ### Procedures
 
 #### Updating RHEL Minor Version
