@@ -1,0 +1,2480 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../cisco-mds/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Brocade SAN - Rick's Work Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#brocade-san" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Rick&#39;s Work Notes" class="md-header__button md-logo" aria-label="Rick's Work Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rick's Work Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Brocade SAN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Network/" class="md-tabs__link">
+          
+  
+    
+  
+  Network
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Resources/" class="md-tabs__link">
+          
+  
+    
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  SAN
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Servers/ibmi/" class="md-tabs__link">
+          
+  
+    
+  
+  Servers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Software/" class="md-tabs__link">
+          
+  
+    
+  
+  Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Storage/" class="md-tabs__link">
+          
+  
+    
+  
+  Storage
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Rick&#39;s Work Notes" class="md-nav__button md-logo" aria-label="Rick's Work Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Rick's Work Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Network/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Resources/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/ibm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resources/quick-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rick's Quick Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SAN
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            SAN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Brocade SAN
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Brocade SAN
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Links
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#support-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Guides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microcode-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcode Guidance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-firmware-from-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Firmware From USB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name-and-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name and Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-center-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Center Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licenses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zone-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zone Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fcip-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      FCIP Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FCIP Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fcip-configuration-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      FCIP Configuration Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FCIP Configuration Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-ge-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure GE Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-fcip-tunnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure FCIP Tunnels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-fcip-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure FCIP Circuits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure IPsec Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brocade-san-switch-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brocade SAN Switch Licenses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brocade SAN Switch Licenses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-the-transaction-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining the Transaction Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-the-license-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining the License ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-a-license-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating a License Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-license-using-a-license-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the License Using a License String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-port-license-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Displaying Port License Assignments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-port-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Port Assignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#san-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAN Discovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SAN Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brocade-san-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brocade SAN Health
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate CSR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cisco-mds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cisco MDS SAN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Servers/ibmi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBMi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Servers/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Software/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/ansible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ansible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Spectrum Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/csm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM CSM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/gklm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM GKLM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/storage-insights/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Storage Insights
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Storage/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Spectrum Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/ceph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Ceph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/ds8000/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM DS8000
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/flashsystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM FlashSystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/icos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Cloud Object Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/scale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Storage Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/ts4500/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM TS4500 Tape Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Links
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#support-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Guides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microcode-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcode Guidance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-firmware-from-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Firmware From USB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name-and-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name and Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-center-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Center Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Licenses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zone-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zone Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fcip-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      FCIP Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FCIP Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fcip-configuration-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      FCIP Configuration Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FCIP Configuration Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-ge-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure GE Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-fcip-tunnels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure FCIP Tunnels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-fcip-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure FCIP Circuits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure IPsec Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brocade-san-switch-licenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brocade SAN Switch Licenses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brocade SAN Switch Licenses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-the-transaction-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining the Transaction Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-the-license-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining the License ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-a-license-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating a License Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-license-using-a-license-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the License Using a License String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-port-license-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Displaying Port License Assignments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-port-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Port Assignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#san-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAN Discovery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SAN Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brocade-san-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brocade SAN Health
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate CSR
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="brocade-san">Brocade SAN</h1>
+<h2 id="documentation-links">Documentation Links</h2>
+<h3 id="support-information">Support Information</h3>
+<ul>
+<li><a href="https://support.broadcom.com">Broadcom Support Portal</a></li>
+</ul>
+<h3 id="reference-guides">Reference Guides</h3>
+<ul>
+<li><a href="https://docs.broadcom.com/doc/FOS-90x-Admin-AG">Brocade FOS Administration Guide, 9.0.x</a></li>
+<li><a href="https://docs.broadcom.com/doc/FOS-90x-Command-RM">Brocade FOS Command Reference Manual, 9.0.x</a></li>
+</ul>
+<h3 id="microcode-guidance">Microcode Guidance</h3>
+<ul>
+<li><a href="https://docs.broadcom.com/doc/Brocade-SW-Support-RM">Brocade Target Path Selection Guide</a></li>
+<li><a href="https://www.ibm.com/support/fixcentral">Download Microcode from IBM Fix Central</a></li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<h3 id="health-check">Health Check</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>switchshow
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>psshow
+</code></pre></div></p>
+<h3 id="load-firmware-from-usb">Load Firmware From USB</h3>
+<p>usbstorage -e
+usbstorage -l
+firmwaredownload -U v9.2.1_EXT</p>
+<h3 id="implementation-checklist">Implementation Checklist</h3>
+<p>These are the typical items that should be reviewed and/or configured when setting up a new Brocade SAN switch/director. While many of these settings can be set in WebTools, the CLI commands are listed here for a simlper checklist.</p>
+<h4 id="user-settings">User Settings</h4>
+<ul>
+<li><input type="checkbox"/> Enable root access <em>optional</em></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>userconfig --change root -e yes ; rootaccess --set all
+</code></pre></div>
+<ul>
+<li>
+<p><input type="checkbox"/> Set root password to pre-defined password (Login as root/fibranne and it will prompt you to change)</p>
+</li>
+<li>
+<p><input type="checkbox"/> Set admin password to pre-defined password</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>passwd
+</code></pre></div>
+<h4 id="name-and-address">Name and Address</h4>
+<ul>
+<li><input type="checkbox"/> Set the switch name</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>switchname new_name
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Set IP address, subnet mask, gateway</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ipaddrset
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Set the Registered Organization Name <strong>(Directors Only)</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ron --set &lt;customer_name&gt;
+</code></pre></div>
+<h4 id="data-center-settings">Data Center Settings</h4>
+<ul>
+<li><input type="checkbox"/> Verify Management Port Speed (Default is 1000-auto, but some customers need this set to 100-full)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>## If 100-full is required
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ethif --set eth0 -an off -speed 100 -duplex full
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>## Validate
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ethif --show eth0
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Configure timezone</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>tstimezone America/New_York
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>tstimezone America/Chicago
+</code></pre></div>
+<ul>
+<li>
+<p><input type="checkbox"/> Reboot to make new timezone effective (do this before configurating the clock)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>reboot
+</code></pre></div></p>
+</li>
+<li>
+<p><input type="checkbox"/> Configure clock</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>date mmddHHMMyy
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Configure DNS</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>dnsconfig --add -domain &lt;domain_name&gt; -serverip1 &lt;ip_address_1&gt; -serverip2 &lt;ip_address_2&gt;
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Configure NTP server</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>tsclockserver &quot;ntp_server_name&quot;
+</code></pre></div>
+- <input type="checkbox"/> Configure SMTP server</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>relayConfig --config -rla_ip &lt;relay IP&gt; -rla_dname &lt;domain name&gt;
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> <a href="/san/brocade/ldap-switch">Configure LDAP</a> (optional)</li>
+</ul>
+<h4 id="licenses">Licenses</h4>
+<ul>
+<li>
+<p><input type="checkbox"/> <a href="/san/brocade/license">Apply new licenses</a> (POD, etc.)</p>
+</li>
+<li>
+<p><input type="checkbox"/> Verify licenses (POD, etc.)</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>licenseshow
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> <a href="/san/brocade/license#static-port-assignment">Assign static port licenses</a></li>
+</ul>
+<h4 id="firmware">Firmware</h4>
+<ul>
+<li><input type="checkbox"/> Update FOS
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>firmwaredownload &lt;ftp_server_ip&gt;,&lt;ftp_userid&gt;,&lt;path_to_firmware&gt;
+</code></pre></div></li>
+<li><input type="checkbox"/> Configure domain id and set insistent domain ID</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>switchdisable ; configure
+</code></pre></div>
+<h4 id="zone-config">Zone Config</h4>
+<ul>
+<li><input type="checkbox"/> Configure default zone policy to No Access</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>defzone --noaccess ; cfgsave
+</code></pre></div>
+<ul>
+<li><input type="checkbox"/> Configure zoning</li>
+</ul>
+<h4 id="optional">Optional</h4>
+<ul>
+<li><input type="checkbox"/> Persistent disable all ports
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>portcfgpersistentdisable 3/0-47
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>portcfgpersistentdisable 4/0-47
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>portcfgpersistentdisable 5/0-47
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>portcfgpersistentdisable 6/0-47
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>portcfgpersistentdisable 9/0-47
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>portcfgpersistentdisable 10/0-47
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>portcfgpersistentdisable 11/0-47
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>portcfgpersistentdisable 12/0-47
+</code></pre></div></li>
+</ul>
+<h4 id="maps">MAPS</h4>
+<ul>
+<li><input type="checkbox"/> Enable a policy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mapspolicy --show -summary
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>mapspolicy --enable dflt_conservative_policy
+</code></pre></div></li>
+<li><input type="checkbox"/> Verify policy is active
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>mapsconfig --show
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>mapsconfig --actions raslog,email
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>mapsConfig --emailcfg -address rick.k@evolvingsol.com
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>mapsconfig --show
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>mapsconfig --testmail -subject &quot;this is a test&quot; -message &quot;test email body&quot;
+</code></pre></div></li>
+</ul>
+<h3 id="configuring-security">Configuring Security</h3>
+<ul>
+<li><a href="https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-administration/9-2-x/v26755091/v26754426.html">Brocade Security Templates</a>
+This command will show security setup.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>seccryptocfg --show
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>br6510-fabA-1:FID128:admin&gt; seccryptocfg --show
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>SSH Crypto:
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>SSH Cipher               : aes128-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>SSH Kex                  : diffie-hellman-group14-sha1,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>SSH MAC                  : hmac-sha2-256,hmac-sha2-512
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>TLS Ciphers:
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>HTTPS                    : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>RADIUS                   : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>LDAP                     : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>SYSLOG                   : !ECDH:!DH:HIGH:-MD5:!CAMELLIA:!SRP:!PSK:!AESGCM:!3DES:!aNULL
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>TLS Protocol:
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>HTTPS                    : TLSv1.2
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>RADIUS                   : TLSv1.2
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>LDAP                     : TLSv1.2
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>SYSLOG                   : TLSv1.2
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>X509v3:
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>Validation               : Strict
+</code></pre></div></li>
+</ul>
+<p>To list security templates that are available:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>seccryptocfg --lstemplates
+</code></pre></div>
+To list the contents of a particular template:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>seccryptocfg --show template_file
+</code></pre></div>
+To apply the configurations in a template file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>seccryptocfg --apply template_file
+</code></pre></div></p>
+<h3 id="fcip-configuration">FCIP Configuration</h3>
+<h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-extension/9-2-x.html">Brocade® Fabric OS® Extension User Guide</a></li>
+</ul>
+<h4 id="fcip-configuration-steps">FCIP Configuration Steps</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps shown below are the steps followed in a real world implementation of Brocade 7810s with two 10G links. </p>
+</div>
+<h5 id="configure-ge-interfaces">Configure GE Interfaces</h5>
+<ol>
+<li>Show the GE Interfaces and make note of speed and WAN or LAN indication.  A flag of <strong>L</strong> means it is set for LAN (don't want this for FCIP).  No <strong>L</strong> indicates it is set for WAN (this is correct).<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>portcfgge --show
+</code></pre></div></li>
+<li>If needed, set the port for WAN
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>portcfgge ge6 --set -wan
+</code></pre></div></li>
+<li>Set the GE port to 10G
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>portcfgge ge2 --set -speed 10G
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>portcfgge ge3 --set -speed 10G        
+</code></pre></div></li>
+<li>Assign IP addresses to the IP interfaces
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>portcfg ipif ge2 create 10.1.1.10/24 mtu 1500
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>portcfg ipif ge3 create 10.1.1.11/24 mtu 1500
+</code></pre></div></li>
+<li>
+<p>If needed, set PMTU for auto MTU size:</p>
+<div class="highlight"><pre><span></span><code>portcfg ipif ge2.dp0 modify 10.1.1.10/24 mtu auto
+portcfg ipif ge3.dp0 modify 10.1.1.11/24 mtu auto
+</code></pre></div>
+</li>
+<li>
+<p>Show the IP interfaces
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>portshow ipif
+</code></pre></div></p>
+</li>
+</ol>
+<h5 id="configure-fcip-tunnels">Configure FCIP Tunnels</h5>
+<ol>
+<li>Create FCIP tunnel
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>portcfg fciptunnel 12 create
+</code></pre></div></li>
+<li>Enable compression on the tunnel
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>portcfg fciptunnel 12 modify -c deflate
+</code></pre></div></li>
+</ol>
+<h5 id="configure-fcip-circuits">Configure FCIP Circuits</h5>
+<ol>
+<li>Create circuits (Do on both sides) <br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>portcfg fcipcircuit 12 create 0
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>portcfg fcipcircuit 12 create 1
+</code></pre></div></li>
+<li>Add circuit IP addresses (Do on both sides)
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>portcfg fcipcircuit 12 modify 0 --local-ip 10.0.0.5 --remote-ip 192.168.0.5
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>portcfg fcipcircuit 12 modify 1 --local-ip 10.0.0.6 --remote-ip 192.168.0.6
+</code></pre></div></li>
+<li>Set min and max bandwidth (Do on both sides)
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>portcfg fcipcircuit 12 modify 0 -b 615000 -B 1230000
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>portcfg fcipcircuit 12 modify 1 -b 615000 -B 1230000
+</code></pre></div></li>
+</ol>
+<h5 id="configure-ipsec-encryption">Configure IPsec Encryption</h5>
+<ol>
+<li>Create an IPsec Policy
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>portcfg ipsec-policy MyPolicyName create --preshared-key Li6a28@yfH@sgT28PNUj
+</code></pre></div></li>
+<li>Verify the IPsec policy is correct on all switches<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>portshow ipsec-policy --password
+</code></pre></div></li>
+<li>Apply the IPSec Policy to the tunnel
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>portcfg fciptunnel 12 modify --ipsec MyPolicyName
+</code></pre></div></li>
+<li>Verify the IPsec configuration was applied to all circuits correctly<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>portshow ipsec-policy --ike
+</code></pre></div></li>
+</ol>
+<h5 id="validation-commands">Validation Commands</h5>
+<ul>
+<li>Show the IP Interfaces
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>portshow ipif
+</code></pre></div></li>
+<li>Show the FCIP Tunnel status along with circuits
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>portshow fciptunnel -c
+</code></pre></div></li>
+</ul>
+<h2 id="brocade-san-switch-licenses">Brocade SAN Switch Licenses</h2>
+<p>In order to activate a license, you must have a <strong>Transaction Key</strong> for each license to be activated along with the <strong>License ID</strong> (LID) of the appropriate switch.</p>
+<h3 id="obtaining-the-transaction-key">Obtaining the Transaction Key</h3>
+<p>A Transaction key is unique key, along with the LID, used to generate a software license from the Broadcom licensing portal. The transaction key is issued when a license is purchased. The transaction key is delivered in one of two methods:</p>
+<ul>
+<li><strong>Paperpack</strong> – The transaction key is printed and delivered within a POD Optic Hardware Kit. </li>
+<li><strong>E-license</strong> – The transaction key is contained in an email that is sent instantly to the customer after the sales order is created. The customer is sent the email message within a few minutes after the sales order is submitted, although the timing will vary depending on the network, internet connection, and so on. </li>
+</ul>
+<h3 id="obtaining-the-license-id">Obtaining the License ID</h3>
+<p>You must have a license ID to generate the license file in the Broadcom licensing portal.
+Obtain the license ID of the switch or chassis using the CLI method:</p>
+<ol>
+<li>Connect to the switch, and log in using an account with admin permissions. </li>
+<li>Enter the following command to display the license ID of the switch:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>license --show -lid
+</code></pre></div></li>
+</ol>
+<h3 id="generating-a-license-key">Generating a License Key</h3>
+<p>Use the following procedure to generate and obtain a FOS license key. </p>
+<ol>
+<li>Go to <a href="https://www.brocade.com">https://www.broadcom.com</a>, and then select the LOGIN drop-down at the top-right of the web page. </li>
+<li>Click <strong>LOGIN</strong> or <strong>REGISTER</strong>. Once logged in, you will be redirected to the Broadcom support portal. </li>
+<li>Click <strong>Brocade Products</strong>. You will be redirected to the Brocade Products page. </li>
+<li>Click <strong>Licensing</strong>. You will be redirected to the Broadcom Licensing Portal page. </li>
+<li>Enter the transaction key. Click Next to continue. <blockquote>
+<p>Re-host keys are generated only by the SANnav application and are used only on SANnav. 
+{.is-info}</p>
+</blockquote>
+</li>
+<li>Enter the license ID (LID) that you obtained earlier in the Unit Information field. Click <strong>Next</strong> to continue. </li>
+<li>Read the Broadcom End User License Agreement, and if you agree to the terms, select the <strong>I have read and accept</strong> checkbox. </li>
+<li>Click <strong>Generate</strong> to generate the license. </li>
+<li>The license key will be sent by email and can also be downloaded by selecting the blue license hyperlink from the Broadcom licensing portal UI. </li>
+<li>If a license string is generated, save it to your local folder for future reference. </li>
+<li>If an XML certificate file is generated, save it to the remote server, where it will be retrieved for installing the license. </li>
+</ol>
+<h3 id="installing-the-license-using-a-license-string">Installing the License Using a License String</h3>
+<p>For Brocade Gen 6 switches and directors, you must pass the license key in the license --install command to install the licenses.</p>
+<ol>
+<li>Connect to the switch, and log in using an account with admin permissions. </li>
+<li>Activate the license using the license --install -key <lic_key> command. 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>license --install -key HP9ttZNSgmB4MCD3NmNWgQDWtAKBFtXtBSFJF
+</code></pre></div></li>
+<li>Verify that the license was installed by entering the license --show command. The licensed features that are currently installed on the switch are listed. If the feature is not listed, use the license --install command to install the license. 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>license --show
+</code></pre></div></li>
+</ol>
+<h3 id="displaying-port-license-assignments">Displaying Port License Assignments</h3>
+<p>When you display the available licenses, you can also view the current port assignment of those licenses. 
+Use the following procedure to display the port license assignments.</p>
+<ol>
+<li>Connect to the switch, and log in using an account with admin permissions. </li>
+<li>Enter the license --show -port command to view how port licenses are currently assigned.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>license --show -port
+</code></pre></div></li>
+</ol>
+<h3 id="static-port-assignment">Static Port Assignment</h3>
+<p>When Dynamic Ports On Demand (DPOD) is enabled, ports are licensed from a pool of available licenses based on the server blade or switch installation.  Each port that is enabled will secure a license on a first-come, first-served basis.  If you would like to statically assign port licenses, use the following command.  Example below would reserve licenses on the first 16 ports in a switch.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>license --reserve -port 0-15
+</code></pre></div></p>
+<p>Use the command in the previous section to display the port licenses after making the static assignment to ensure they were properly assigned.</p>
+<h2 id="san-discovery">SAN Discovery</h2>
+<h3 id="brocade-san-health">Brocade SAN Health</h3>
+<p><em>This tool is free of charge to anyone with a Broadcom.com account.</em></p>
+<ol>
+<li>Download and Install the Free Tool
+Go to this URL and follow the steps to download and install Brocade SAN Health Diagnostic Capture:
+<a href="https://www.broadcom.com/support/fibre-channel-networking/tools/san-health/diagnostics-capture">Download Brocade SAN Health Diagnostics Capture</a></li>
+<li>Before running, turn on automatic upload by clicking the <strong>Options</strong> button.
+<img alt="Click Options" src="../assets/images/san-health-1.png" /></li>
+<li>Check the box to <strong>Automatically send the BSH file to the report generation queue on audit completion</strong>.
+<img alt="Automatic Upload" src="../assets/images/san-health-2.png" /></li>
+<li>Click <strong>Done</strong>.</li>
+<li>Click the <strong>New</strong> button to generate a new audit file.  This only needs to be done the first time setting up SAN Health.  Future runs can be done by opening a saved audit file.
+<img alt="Click New" src="../assets/images/san-health-3.png" /></li>
+<li>Complete all 5 tabs in the SAN Health Audit.  Include <em>Rick Koetter - rick.k@evolvingsol.com</em> or other partners as desired in the <strong>Optional Additional Recipients</strong> fields.
+<img alt="Additional Recipients" src="../assets/images/san-health-4.png" /></li>
+<li>Be sure to include all fabrics.  There is no good reason to run this multiple times for different fabrics.  All fabrics can be included in a single SAN Health report.</li>
+<li>Before starting the capture, click on the Save button to save the audit so you can run this report easily with a few clicks in the future.</li>
+<li>Start the Audit on the Capture tab after all other tabs are complete and all fabrics have been discovered successfully.  The file will upload automatically after all data is completed.
+<img alt="Start The Audit" src="../assets/images/san-health-5.png" /></li>
+<li>It may take up to several hours for the report to be generated.  When it is ready for download, you will receive notification by email.  You will be instructed to download the report from <a href="https://support.broadcom.com">https://support.broadcom.com</a>. Your consultant will also receive a copy of the report if you entered their email in the Optional Additional Recipients field.</li>
+</ol>
+<h3 id="generate-csr">Generate CSR</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>seccertmgmt generate -csr https  -type rsa -keysize 2048 -hash sha256 -years 1 -f
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>seccertmgmt show -csr https -hexdump
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: SAN Notes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                SAN Notes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cisco-mds/" class="md-footer__link md-footer__link--next" aria-label="Next: Cisco MDS SAN">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cisco MDS SAN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/rickkoe"  target="_blank" rel="noopener">Rick Koetter</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rickkoe" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/rickkoetter" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/rickkoetter/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sticky", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
