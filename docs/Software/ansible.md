@@ -5,6 +5,7 @@
 - [Ansible Galaxy](https://galaxy.ansible.com)
 - [Online YAML Tools](https://onlineyamltools.com/edit-yaml)
 - [Code Beautify](https://codebeautify.ort/yaml-editor-online)
+- [Ansible Automation Hub](https://console.redhat.com/ansible/automation-hub/namespaces/ibm/?sort=name&page=1&page_size=50)
 
 ## Galaxy Collections I Care About
 ### IBM Storage
